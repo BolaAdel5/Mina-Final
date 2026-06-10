@@ -145,31 +145,176 @@
       <h2 class="section__title" data-i18n="galleryTitle">معرض المشاريع</h2>
       <p class="section__subtitle" data-i18n="gallerySubtitle">نماذج منتقاة من أعمالنا المنجزة في الرياض — كل صورة تحكي قصة حرفة</p>
     </div>
-    <div class="gallery__grid">
-      <div class="gallery__item gallery__item--large reveal">
-        <div class="gallery__ph" style="--h:28;--l:28"><i class="fas fa-bed"></i><span data-i18n="gal1Ph">غرفة نوم كلاسيكية</span></div>
-        <div class="gallery__overlay"><span data-i18n="gal1Ov">غرفة نوم فاخرة — تفصيل مخصص</span></div>
+    <!-- Filter Tabs -->
+    <div class="gallery__filters reveal">
+      <button class="gf-btn active" data-filter="all">الكل</button>
+      <button class="gf-btn" data-filter="kitchen">مطابخ</button>
+      <button class="gf-btn" data-filter="wardrobe">خزائن</button>
+      <button class="gf-btn" data-filter="furniture">أثاث</button>
+      <button class="gf-btn" data-filter="doors">أبواب</button>
+    </div>
+
+    <div class="gallery__grid" id="galleryGrid">
+
+      <!-- 1: مطبخ مودرن كبير -->
+      <div class="gallery__item gallery__item--large reveal" data-cat="kitchen"
+           data-title="مطبخ مودرن متكامل" data-desc="تفصيل مطبخ بخامات إيطالية — حي النرجس">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80"
+             alt="مطبخ مودرن متكامل" class="gallery__img" loading="lazy"/>
+        <div class="gallery__overlay">
+          <div class="gallery__overlay-content">
+            <span class="gallery__cat-badge"><i class="fas fa-utensils"></i> مطابخ</span>
+            <span class="gallery__title">مطبخ مودرن متكامل</span>
+            <span class="gallery__sub">حي النرجس، الرياض</span>
+          </div>
+          <button class="gallery__zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
+        </div>
       </div>
-      <div class="gallery__item reveal">
-        <div class="gallery__ph" style="--h:20;--l:24"><i class="fas fa-utensils"></i><span data-i18n="gal2Ph">مطبخ عصري</span></div>
-        <div class="gallery__overlay"><span data-i18n="gal2Ov">مطبخ مودرن متكامل</span></div>
+
+      <!-- 2: خزانة جدارية -->
+      <div class="gallery__item reveal" data-cat="wardrobe"
+           data-title="خزانة جدارية فاخرة" data-desc="خزانة ملابس من الأرض للسقف — حي الملقا">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
+             alt="خزانة جدارية فاخرة" class="gallery__img" loading="lazy"/>
+        <div class="gallery__overlay">
+          <div class="gallery__overlay-content">
+            <span class="gallery__cat-badge"><i class="fas fa-door-closed"></i> خزائن</span>
+            <span class="gallery__title">خزانة جدارية فاخرة</span>
+            <span class="gallery__sub">حي الملقا، الرياض</span>
+          </div>
+          <button class="gallery__zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
+        </div>
       </div>
-      <div class="gallery__item reveal">
-        <div class="gallery__ph" style="--h:36;--l:26"><i class="fas fa-door-open"></i><span data-i18n="gal3Ph">باب منقوش</span></div>
-        <div class="gallery__overlay"><span data-i18n="gal3Ov">باب رئيسي بنقوش يدوية</span></div>
+
+      <!-- 3: باب خشبي -->
+      <div class="gallery__item reveal" data-cat="doors"
+           data-title="باب رئيسي منقوش" data-desc="باب فيلا بنقوش يدوية من خشب البلوط">
+        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=600&q=80"
+             alt="باب رئيسي منقوش" class="gallery__img" loading="lazy"/>
+        <div class="gallery__overlay">
+          <div class="gallery__overlay-content">
+            <span class="gallery__cat-badge"><i class="fas fa-door-open"></i> أبواب</span>
+            <span class="gallery__title">باب رئيسي منقوش</span>
+            <span class="gallery__sub">شمال الرياض</span>
+          </div>
+          <button class="gallery__zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
+        </div>
       </div>
-      <div class="gallery__item reveal">
-        <div class="gallery__ph" style="--h:22;--l:30"><i class="fas fa-tv"></i><span data-i18n="gal4Ph">وحدة تلفزيون</span></div>
-        <div class="gallery__overlay"><span data-i18n="gal4Ov">وحدة تلفزيون مخصصة</span></div>
+
+      <!-- 4: وحدة تلفزيون -->
+      <div class="gallery__item reveal" data-cat="furniture"
+           data-title="وحدة تلفزيون مخصصة" data-desc="وحدة تلفزيون مدمجة مع مكتبة جدارية">
+        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80"
+             alt="وحدة تلفزيون مخصصة" class="gallery__img" loading="lazy"/>
+        <div class="gallery__overlay">
+          <div class="gallery__overlay-content">
+            <span class="gallery__cat-badge"><i class="fas fa-couch"></i> أثاث</span>
+            <span class="gallery__title">وحدة تلفزيون مخصصة</span>
+            <span class="gallery__sub">حي الياسمين، الرياض</span>
+          </div>
+          <button class="gallery__zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
+        </div>
       </div>
-      <div class="gallery__item gallery__item--wide reveal">
-        <div class="gallery__ph" style="--h:32;--l:25"><i class="fas fa-book-open"></i><span data-i18n="gal5Ph">مكتبة حائطية</span></div>
-        <div class="gallery__overlay"><span data-i18n="gal5Ov">مكتبة حائطية متكاملة</span></div>
+
+      <!-- 5: مكتبة حائطية -->
+      <div class="gallery__item gallery__item--wide reveal" data-cat="furniture"
+           data-title="مكتبة حائطية متكاملة" data-desc="مكتبة جدارية من الخشب الطبيعي مع إضاءة LED">
+        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1000&q=80"
+             alt="مكتبة حائطية متكاملة" class="gallery__img" loading="lazy"/>
+        <div class="gallery__overlay">
+          <div class="gallery__overlay-content">
+            <span class="gallery__cat-badge"><i class="fas fa-book-open"></i> أثاث</span>
+            <span class="gallery__title">مكتبة حائطية متكاملة</span>
+            <span class="gallery__sub">حي العارض، الرياض</span>
+          </div>
+          <button class="gallery__zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
+        </div>
       </div>
-      <div class="gallery__item reveal">
-        <div class="gallery__ph" style="--h:16;--l:28"><i class="fas fa-table"></i><span data-i18n="gal6Ph">طاولة طعام</span></div>
-        <div class="gallery__overlay"><span data-i18n="gal6Ov">طاولة طعام خشب صلب</span></div>
+
+      <!-- 6: طاولة طعام -->
+      <div class="gallery__item reveal" data-cat="furniture"
+           data-title="طاولة طعام خشب صلب" data-desc="طاولة طعام مفصّلة من خشب البلوط الصلب لـ ١٠ أشخاص">
+        <img src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=600&q=80"
+             alt="طاولة طعام خشب صلب" class="gallery__img" loading="lazy"/>
+        <div class="gallery__overlay">
+          <div class="gallery__overlay-content">
+            <span class="gallery__cat-badge"><i class="fas fa-couch"></i> أثاث</span>
+            <span class="gallery__title">طاولة طعام خشب صلب</span>
+            <span class="gallery__sub">حي النرجس، الرياض</span>
+          </div>
+          <button class="gallery__zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
+        </div>
       </div>
+
+      <!-- 7: مطبخ كلاسيك -->
+      <div class="gallery__item reveal" data-cat="kitchen"
+           data-title="مطبخ كلاسيكي فاخر" data-desc="مطبخ كلاسيكي بألوان دافئة وخامات إيطالية">
+        <img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=600&q=80"
+             alt="مطبخ كلاسيكي فاخر" class="gallery__img" loading="lazy"/>
+        <div class="gallery__overlay">
+          <div class="gallery__overlay-content">
+            <span class="gallery__cat-badge"><i class="fas fa-utensils"></i> مطابخ</span>
+            <span class="gallery__title">مطبخ كلاسيكي فاخر</span>
+            <span class="gallery__sub">حي الملقا، الرياض</span>
+          </div>
+          <button class="gallery__zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
+        </div>
+      </div>
+
+      <!-- 8: غرفة نوم -->
+      <div class="gallery__item reveal" data-cat="furniture"
+           data-title="غرفة نوم كاملة" data-desc="تفصيل غرفة نوم رئيسية كاملة من السرير للخزانة">
+        <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?w=600&q=80"
+             alt="غرفة نوم كاملة" class="gallery__img" loading="lazy"/>
+        <div class="gallery__overlay">
+          <div class="gallery__overlay-content">
+            <span class="gallery__cat-badge"><i class="fas fa-bed"></i> أثاث</span>
+            <span class="gallery__title">غرفة نوم كاملة</span>
+            <span class="gallery__sub">شمال الرياض</span>
+          </div>
+          <button class="gallery__zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
+        </div>
+      </div>
+
+      <!-- 9: خزانة أطفال -->
+      <div class="gallery__item reveal" data-cat="wardrobe"
+           data-title="خزانة غرفة أطفال" data-desc="خزانة ملونة مخصصة لغرفة أطفال — ألوان مبهجة وتنظيم ذكي">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80"
+             alt="خزانة غرفة أطفال" class="gallery__img" loading="lazy"/>
+        <div class="gallery__overlay">
+          <div class="gallery__overlay-content">
+            <span class="gallery__cat-badge"><i class="fas fa-door-closed"></i> خزائن</span>
+            <span class="gallery__title">خزانة غرفة أطفال</span>
+            <span class="gallery__sub">حي الياسمين، الرياض</span>
+          </div>
+          <button class="gallery__zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:3rem" class="reveal">
+      <a href="reviews.html" class="btn btn--ghost">
+        <i class="fas fa-star"></i> آراء عملائنا
+      </a>
+      <a href="blog.html" class="btn btn--ghost" style="margin-right:1rem">
+        <i class="fas fa-images"></i> معرض كامل في المدونة
+      </a>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="عرض الصورة">
+      <button class="lightbox__close" id="lbClose" aria-label="إغلاق"><i class="fas fa-times"></i></button>
+      <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="السابق"><i class="fas fa-chevron-right"></i></button>
+      <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="التالي"><i class="fas fa-chevron-left"></i></button>
+      <div class="lightbox__content">
+        <img class="lightbox__img" id="lbImg" src="" alt=""/>
+        <div class="lightbox__info">
+          <div class="lightbox__title" id="lbTitle"></div>
+          <div class="lightbox__desc" id="lbDesc"></div>
+        </div>
+      </div>
+      <div class="lightbox__counter" id="lbCounter"></div>
     </div>
   </div>
 </section>
@@ -303,5 +448,113 @@
 </footer>
 
 <script src="components.js"></script>
+
+  <!-- Gallery: Filter + Lightbox -->
+  <script>
+  (function() {
+
+    /* ── FILTER ── */
+    document.querySelectorAll('.gf-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.gf-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        const items = document.querySelectorAll('#galleryGrid .gallery__item');
+        items.forEach(item => {
+          const match = filter === 'all' || item.dataset.cat === filter;
+          item.classList.toggle('hidden', !match);
+        });
+      });
+    });
+
+    /* ── LIGHTBOX ── */
+    const lb      = document.getElementById('lightbox');
+    const lbImg   = document.getElementById('lbImg');
+    const lbTitle = document.getElementById('lbTitle');
+    const lbDesc  = document.getElementById('lbDesc');
+    const lbCount = document.getElementById('lbCounter');
+    const lbClose = document.getElementById('lbClose');
+    const lbPrev  = document.getElementById('lbPrev');
+    const lbNext  = document.getElementById('lbNext');
+
+    let items = [];
+    let current = 0;
+
+    function getVisibleItems() {
+      return [...document.querySelectorAll('#galleryGrid .gallery__item:not(.hidden)')];
+    }
+
+    function openLB(idx) {
+      items = getVisibleItems();
+      current = idx;
+      showItem(current);
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLB() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function showItem(idx) {
+      const item = items[idx];
+      if (!item) return;
+      const img  = item.querySelector('.gallery__img');
+      lbImg.classList.add('loading');
+      lbImg.src = '';
+      setTimeout(() => {
+        lbImg.src = img ? img.src.replace('w=600','w=1200').replace('w=800','w=1400').replace('w=1000','w=1600') : '';
+        lbImg.alt = img ? img.alt : '';
+        lbImg.onload = () => lbImg.classList.remove('loading');
+        lbTitle.textContent = item.dataset.title || '';
+        lbDesc.textContent  = item.dataset.desc  || '';
+        lbCount.textContent = (idx + 1) + ' / ' + items.length;
+      }, 80);
+    }
+
+    // Open on item or zoom click
+    document.getElementById('galleryGrid').addEventListener('click', e => {
+      const item = e.target.closest('.gallery__item');
+      if (!item) return;
+      items = getVisibleItems();
+      const idx = items.indexOf(item);
+      if (idx >= 0) openLB(idx);
+    });
+
+    lbClose.addEventListener('click', closeLB);
+    lb.addEventListener('click', e => { if (e.target === lb) closeLB(); });
+
+    lbPrev.addEventListener('click', e => {
+      e.stopPropagation();
+      current = (current - 1 + items.length) % items.length;
+      showItem(current);
+    });
+    lbNext.addEventListener('click', e => {
+      e.stopPropagation();
+      current = (current + 1) % items.length;
+      showItem(current);
+    });
+
+    // Keyboard
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape')      closeLB();
+      if (e.key === 'ArrowRight')  { current = (current - 1 + items.length) % items.length; showItem(current); }
+      if (e.key === 'ArrowLeft')   { current = (current + 1) % items.length; showItem(current); }
+    });
+
+    // Touch swipe
+    let touchStartX = 0;
+    lb.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) < 50) return;
+      if (dx > 0) { current = (current - 1 + items.length) % items.length; }
+      else        { current = (current + 1) % items.length; }
+      showItem(current);
+    });
+
+  })();
+  </script>
+
 </body>
 </html>
