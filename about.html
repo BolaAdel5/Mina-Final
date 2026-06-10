@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>من نحن | مينا فني نجارة — نجار الرياض</title>
+<meta name="description" content="تعرّف على مينا فني نجارة — خبرة ٢٠ عامًا في تفصيل الأثاث والمطابخ والخزائن في الرياض. فريق متخصص يجمع الحرفة الأصيلة والتقنية الحديثة."/>
+<meta name="keywords" content="نجار الرياض، من نحن، مينا فني نجارة، تفصيل مطابخ، تفصيل خزائن"/>
+<link rel="canonical" href="https://najarriyadih.com/about.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.page-hero{background:var(--dbg);padding:8rem 0 4rem;text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 40%,rgba(200,146,42,.12),transparent)}
+.page-hero__label{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--g400);background:rgba(200,146,42,.12);border:1px solid rgba(200,146,42,.28);padding:.3rem 1rem;border-radius:999px;margin-bottom:1rem}
+.page-hero__title{font-family:var(--fd);font-size:clamp(2.2rem,5vw,3.5rem);font-weight:700;color:#fff;margin-bottom:1rem}
+.page-hero__title em{color:var(--g400);font-style:normal}
+.page-hero__sub{color:var(--c300);font-size:1.05rem;max-width:560px;margin:0 auto}
+.breadcrumb{display:flex;align-items:center;gap:.5rem;justify-content:center;margin-top:1.5rem;color:var(--c400);font-size:.88rem}
+.breadcrumb a{color:var(--g300)}
+.breadcrumb a:hover{color:var(--g400)}
+
+/* Timeline */
+.timeline{position:relative;padding:0;margin-top:3rem}
+.timeline::before{content:'';position:absolute;right:calc(50% - 1px);top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--g400),var(--w400));opacity:.4}
+.timeline__item{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;margin-bottom:3rem;align-items:start}
+.timeline__item:nth-child(even) .timeline__content{grid-column:3}
+.timeline__item:nth-child(even) .timeline__spacer{grid-column:2}
+.timeline__item:nth-child(even) .timeline__empty{grid-column:1;grid-row:1}
+.timeline__item:nth-child(odd) .timeline__content{grid-column:1;text-align:left}
+.timeline__dot{grid-column:2;width:44px;height:44px;background:var(--g500);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--w900);font-weight:800;font-size:.9rem;box-shadow:0 0 0 6px rgba(200,146,42,.15);margin:0 auto;z-index:1;position:relative}
+.timeline__content{background:#fff;border:1px solid var(--c300);border-radius:var(--r2);padding:1.5rem;box-shadow:var(--sh1)}
+.timeline__year{font-size:.8rem;font-weight:800;color:var(--g500);letter-spacing:.1em;margin-bottom:.4rem}
+.timeline__event{font-weight:700;color:var(--txt);margin-bottom:.4rem;font-size:1rem}
+.timeline__desc{color:var(--muted);font-size:.9rem;line-height:1.7}
+
+/* Team */
+.team__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem;margin-top:3rem}
+.team-card{background:#fff;border-radius:var(--r3);overflow:hidden;box-shadow:var(--sh1);transition:transform var(--d),box-shadow var(--d)}
+.team-card:hover{transform:translateY(-6px);box-shadow:var(--sh2)}
+.team-card__avatar{height:200px;background:linear-gradient(135deg,var(--w600),var(--w400));display:flex;align-items:center;justify-content:center;font-size:4rem;color:rgba(255,255,255,.5)}
+.team-card__body{padding:1.5rem}
+.team-card__name{font-family:var(--fd);font-size:1.2rem;font-weight:700;color:var(--txt);margin-bottom:.3rem}
+.team-card__role{font-size:.85rem;color:var(--g500);font-weight:700;margin-bottom:.8rem}
+.team-card__bio{font-size:.9rem;color:var(--muted);line-height:1.7}
+
+/* Values */
+.values__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-top:3rem}
+.value-card{background:var(--dcard);border:1px solid var(--dborder);border-radius:var(--r2);padding:2rem;text-align:center;transition:border-color var(--d)}
+.value-card:hover{border-color:rgba(200,146,42,.4)}
+.value-card__icon{width:64px;height:64px;background:rgba(200,146,42,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-size:1.8rem;color:var(--g400)}
+.value-card__title{color:var(--c100);font-weight:700;margin-bottom:.7rem;font-size:1rem}
+.value-card__text{color:var(--c400);font-size:.9rem;line-height:1.7}
+
+/* Stats */
+.stats-band{background:linear-gradient(135deg,var(--w700),var(--w600));padding:4rem 0;text-align:center}
+.stats-band__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem}
+.stat-item__num{font-family:var(--fd);font-size:clamp(2.5rem,5vw,4rem);font-weight:700;color:var(--g300);line-height:1}
+.stat-item__label{color:rgba(255,220,170,.75);font-size:.95rem;margin-top:.4rem}
+
+/* FAQ */
+.faq{max-width:760px;margin:3rem auto 0}
+.faq__item{border-bottom:1px solid var(--c300)}
+.faq__q{width:100%;text-align:right;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 0;font-weight:700;font-size:1rem;color:var(--txt);cursor:pointer;gap:1rem;background:none;border:none;font-family:var(--fb)}
+.faq__q:hover{color:var(--g500)}
+.faq__icon{color:var(--g500);font-size:.85rem;transition:transform .3s;flex-shrink:0}
+.faq__a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s}
+.faq__a.open{max-height:400px;padding-bottom:1rem}
+.faq__a p{color:var(--muted);line-height:1.8;font-size:.95rem}
+
+/* Call button fixed mobile */
+.call-fixed{display:none;position:fixed;bottom:1.5rem;left:1.5rem;z-index:999;background:var(--w500);color:#fff;width:56px;height:56px;border-radius:50%;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 4px 20px rgba(90,40,10,.4);transition:transform .2s}
+.call-fixed:hover{transform:scale(1.1)}
+@media(max-width:768px){.call-fixed{display:flex}}
+@media(max-width:768px){
+  .timeline::before{right:22px}
+  .timeline__item{grid-template-columns:44px 1fr;grid-template-rows:auto}
+  .timeline__item:nth-child(even) .timeline__content,
+  .timeline__item:nth-child(odd) .timeline__content{grid-column:2;grid-row:1;text-align:right}
+  .timeline__dot{grid-column:1;grid-row:1}
+  .timeline__item:nth-child(even) .timeline__empty,
+  .timeline__item:nth-child(odd) .timeline__empty{display:none}
+}
+</style>
+</head>
+<body data-page="about">
+<header id="site-header"></header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero__label"><i class="fas fa-hammer"></i> قصتنا</div>
+    <h1 class="page-hero__title">من نحن — <em>مينا فني نجارة</em></h1>
+    <p class="page-hero__sub">حرفة توارثناها جيلًا بعد جيل، وطوّرناها بأحدث تقنيات عصرنا. منذ ٢٠٠٤ نصنع الجمال من الخشب في الرياض.</p>
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+      <span>/</span>
+      <span>من نحن</span>
+    </nav>
+  </div>
+</section>
+
+<!-- OUR STORY -->
+<section class="section">
+  <div class="container">
+    <div class="about__grid" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center">
+      <div class="reveal">
+        <div class="section__label">قصتنا</div>
+        <h2 class="section__title">رحلة بدأت بعشق <em>الخشب</em></h2>
+        <p style="color:var(--muted);line-height:1.85;margin-bottom:1.2rem">
+          بدأت قصة مينا فني نجارة في عام ٢٠٠٤ بورشة صغيرة في قلب الرياض وحلم كبير: أن نُقدّم نجارة تُضاهي أفضل ما في العالم. منذ تلك اللحظة، نمت ورشتنا لتصبح واحدة من أكثر شركات النجارة ثقةً في المملكة العربية السعودية.
+        </p>
+        <p style="color:var(--muted);line-height:1.85;margin-bottom:1.2rem">
+          أسّس الشركة مينا، الحرفي الذي تعلّم النجارة على يد والده، وقرر أن يُحوّل هذه الحرفة العريقة إلى تجربة معاصرة. اليوم، يعمل معنا فريق من أمهر النجارين والمصممين الذين يؤمنون بأن كل قطعة خشب تحمل روحًا.
+        </p>
+        <p style="color:var(--muted);line-height:1.85">
+          نخدم حي النرجس، حي الملقا، شمال الرياض، وسائر أحياء العاصمة. خبرتنا في تفصيل المطابخ والخزائن والأثاث المخصص جعلتنا الخيار الأول لأكثر من ٦٠٠ عائلة سعودية.
+        </p>
+      </div>
+      <div class="reveal" style="text-align:center">
+        <div style="background:linear-gradient(135deg,var(--w600),var(--w400));border-radius:var(--r4);padding:3rem;color:#fff;position:relative">
+          <i class="fas fa-hammer" style="font-size:5rem;opacity:.3;position:absolute;top:1.5rem;left:1.5rem"></i>
+          <div style="font-family:var(--fd);font-size:5rem;font-weight:700;color:var(--g300);line-height:1">+٢٠</div>
+          <div style="font-size:1.1rem;opacity:.85;margin-bottom:2rem">عامًا من الحرف والإبداع</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+            <div style="background:rgba(0,0,0,.2);border-radius:var(--r2);padding:1rem">
+              <div style="font-family:var(--fd);font-size:2rem;font-weight:700;color:var(--g300)">+٦٠٠</div>
+              <div style="font-size:.85rem;opacity:.8">مشروع منجز</div>
+            </div>
+            <div style="background:rgba(0,0,0,.2);border-radius:var(--r2);padding:1rem">
+              <div style="font-family:var(--fd);font-size:2rem;font-weight:700;color:var(--g300)">١٠٠٪</div>
+              <div style="font-size:.85rem;opacity:.8">رضا العملاء</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-band__grid">
+      <div class="stat-item reveal">
+        <div class="stat-item__num">+٦٠٠</div>
+        <div class="stat-item__label">مشروع نجارة منجز</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-item__num">٢٠+</div>
+        <div class="stat-item__label">عامًا من الخبرة المتخصصة</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-item__num">١٢</div>
+        <div class="stat-item__label">حرفيًا ومصممًا متخصصًا</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-item__num">٥★</div>
+        <div class="stat-item__label">متوسط تقييم العملاء</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<section class="section section--tint">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__label">مسيرتنا</div>
+      <h2 class="section__title">محطات <em>أثّرت</em> في رحلتنا</h2>
+      <p class="section__subtitle">من ورشة صغيرة إلى شركة رائدة — إليك أبرز محطات نمونا</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline__item reveal">
+        <div class="timeline__content">
+          <div class="timeline__year">٢٠٠٤</div>
+          <div class="timeline__event">تأسيس الورشة الأولى</div>
+          <div class="timeline__desc">افتتاح أول ورشة نجارة في حي العليا بالرياض، وبدء تقديم خدمات الأثاث المخصص للعائلات.</div>
+        </div>
+        <div class="timeline__dot">٠١</div>
+        <div class="timeline__empty"></div>
+      </div>
+      <div class="timeline__item reveal">
+        <div class="timeline__empty"></div>
+        <div class="timeline__dot">٠٢</div>
+        <div class="timeline__content">
+          <div class="timeline__year">٢٠٠٨</div>
+          <div class="timeline__event">توسعة خدمات المطابخ</div>
+          <div class="timeline__desc">إضافة قسم متخصص في تفصيل وتركيب المطابخ الفاخرة، مما فتح آفاقًا جديدة لخدمة المشاريع الكبرى.</div>
+        </div>
+      </div>
+      <div class="timeline__item reveal">
+        <div class="timeline__content">
+          <div class="timeline__year">٢٠١٢</div>
+          <div class="timeline__event">انتشار في شمال الرياض</div>
+          <div class="timeline__desc">توسيع نطاق العمل ليشمل أحياء النرجس والملقا وحي الياسمين، مع فتح فرع خدمات ميدانية جديد.</div>
+        </div>
+        <div class="timeline__dot">٠٣</div>
+        <div class="timeline__empty"></div>
+      </div>
+      <div class="timeline__item reveal">
+        <div class="timeline__empty"></div>
+        <div class="timeline__dot">٠٤</div>
+        <div class="timeline__content">
+          <div class="timeline__year">٢٠١٧</div>
+          <div class="timeline__event">إطلاق خدمة تفصيل الخزائن</div>
+          <div class="timeline__desc">تخصيص قسم كامل للخزائن الجدارية والغرف الكاملة، مع توفير خدمة التصميم ثلاثي الأبعاد قبل التنفيذ.</div>
+        </div>
+      </div>
+      <div class="timeline__item reveal">
+        <div class="timeline__content">
+          <div class="timeline__year">٢٠٢٠</div>
+          <div class="timeline__event">الرقمنة وخدمة المنازل</div>
+          <div class="timeline__desc">إطلاق موقع إلكتروني وخدمة الحجز أون لاين، مع توفير فريق ميداني متنقل يصل إلى العميل في أي حي.</div>
+        </div>
+        <div class="timeline__dot">٠٥</div>
+        <div class="timeline__empty"></div>
+      </div>
+      <div class="timeline__item reveal">
+        <div class="timeline__empty"></div>
+        <div class="timeline__dot">٠٦</div>
+        <div class="timeline__content">
+          <div class="timeline__year">٢٠٢٤</div>
+          <div class="timeline__event">٢٠ عامًا من الإبداع</div>
+          <div class="timeline__desc">الاحتفال بعقدين من العمل المتواصل، وإنجاز المشروع رقم ٦٠٠، وتوسيع الفريق إلى ١٢ حرفيًا ومصممًا متخصصًا.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR VALUES -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__label">فلسفتنا</div>
+      <h2 class="section__title" style="color:var(--c100)">القيم التي <em>تحكمنا</em></h2>
+      <p class="section__subtitle">ليست مجرد شعارات — بل مبادئ تُوجّه كل مسمار وكل لوح خشبي</p>
+    </div>
+    <div class="values__grid">
+      <div class="value-card reveal">
+        <div class="value-card__icon"><i class="fas fa-star"></i></div>
+        <div class="value-card__title">الجودة أولًا</div>
+        <div class="value-card__text">لا نُقدّم أي عمل لا نرضاه لأنفسنا. كل قطعة تخضع لمراجعة دقيقة قبل التسليم.</div>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-card__icon"><i class="fas fa-handshake"></i></div>
+        <div class="value-card__title">الأمانة والشفافية</div>
+        <div class="value-card__text">أسعارنا واضحة من البداية، ونُطلع العميل على كل تفاصيل المشروع طوال مراحل التنفيذ.</div>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-card__icon"><i class="fas fa-clock"></i></div>
+        <div class="value-card__title">الالتزام بالمواعيد</div>
+        <div class="value-card__text">وقتك ثمين. نضع جدولًا زمنيًا ونلتزم به، ونُبلّغك فورًا إن حدثت أي تغييرات.</div>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-card__icon"><i class="fas fa-leaf"></i></div>
+        <div class="value-card__title">الاستدامة البيئية</div>
+        <div class="value-card__text">نستخدم أخشابًا من مصادر مستدامة ونُعيد تدوير الفائض لنحافظ على بيئتنا للأجيال القادمة.</div>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-card__icon"><i class="fas fa-lightbulb"></i></div>
+        <div class="value-card__title">الابتكار المستمر</div>
+        <div class="value-card__text">نواكب أحدث التصاميم العالمية ونُحدّث أدواتنا وتقنياتنا باستمرار لنُقدّم الأفضل.</div>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-card__icon"><i class="fas fa-heart"></i></div>
+        <div class="value-card__title">رضا العميل غايتنا</div>
+        <div class="value-card__text">لا يُغلق الملف إلا بعد أن يُعبّر العميل عن رضاه الكامل. خدمة ما بعد البيع جزء لا يتجزأ من عملنا.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__label">الفريق</div>
+      <h2 class="section__title">الحرفيون <em>خلف الإبداع</em></h2>
+      <p class="section__subtitle">كل عضو في فريقنا يحمل شغفًا حقيقيًا بالنجارة وخبرة تُقدّر بالسنوات</p>
+    </div>
+    <div class="team__grid">
+      <div class="team-card reveal">
+        <div class="team-card__avatar"><i class="fas fa-user-tie"></i></div>
+        <div class="team-card__body">
+          <div class="team-card__name">مينا — المؤسس</div>
+          <div class="team-card__role">نجار خبير | خبرة ٢٠+ عامًا</div>
+          <div class="team-card__bio">تعلّم النجارة في سنٍ مبكرة وأسّس الشركة بهدف تقديم أعلى مستويات الحرفة للسوق السعودي.</div>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-card__avatar"><i class="fas fa-drafting-compass"></i></div>
+        <div class="team-card__body">
+          <div class="team-card__name">أحمد — المصمم الرئيسي</div>
+          <div class="team-card__role">مصمم داخلي | خبرة ١٢ عامًا</div>
+          <div class="team-card__bio">متخصص في تصميم المطابخ والخزائن ثلاثية الأبعاد، يُحوّل فكرة العميل إلى مخطط تنفيذي احترافي.</div>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-card__avatar"><i class="fas fa-tools"></i></div>
+        <div class="team-card__body">
+          <div class="team-card__name">سامي — رئيس الورشة</div>
+          <div class="team-card__role">نجار متخصص | خبرة ١٥ عامًا</div>
+          <div class="team-card__bio">يُشرف على التنفيذ الميداني ويضمن أن كل منتج يخرج من الورشة يُطابق أعلى معايير الجودة.</div>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-card__avatar"><i class="fas fa-paint-brush"></i></div>
+        <div class="team-card__body">
+          <div class="team-card__name">خالد — التشطيبات</div>
+          <div class="team-card__role">متخصص دهانات خشب | خبرة ١٠ عامًا</div>
+          <div class="team-card__bio">خبير في الدهانات والتشطيبات الخشبية، يُضفي على كل قطعة لمعانًا وجمالًا يدوم لسنوات طويلة.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE/AFTER -->
+<section class="section section--tint">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__label">أعمالنا</div>
+      <h2 class="section__title">قبل وبعد <em>التنفيذ</em></h2>
+      <p class="section__subtitle">الفرق يتحدث عن نفسه — شاهد كيف نُحوّل الفراغات</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:2rem">
+      <div class="reveal" style="background:#fff;border-radius:var(--r2);overflow:hidden;box-shadow:var(--sh1)">
+        <div style="display:grid;grid-template-columns:1fr 1fr">
+          <div style="background:linear-gradient(135deg,#8B7355,#6B5435);height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:.8rem;gap:.5rem">
+            <i class="fas fa-image" style="font-size:2.5rem"></i><span>قبل</span>
+          </div>
+          <div style="background:linear-gradient(135deg,var(--w500),var(--w300));height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,.85);font-size:.8rem;gap:.5rem">
+            <i class="fas fa-star" style="font-size:2.5rem"></i><span>بعد</span>
+          </div>
+        </div>
+        <div style="padding:1.2rem">
+          <div style="font-weight:700;color:var(--txt);margin-bottom:.3rem">تجديد مطبخ — حي النرجس</div>
+          <div style="font-size:.88rem;color:var(--muted)">تحويل مطبخ قديم إلى مطبخ عصري بوحدات تخزين ذكية</div>
+        </div>
+      </div>
+      <div class="reveal" style="background:#fff;border-radius:var(--r2);overflow:hidden;box-shadow:var(--sh1)">
+        <div style="display:grid;grid-template-columns:1fr 1fr">
+          <div style="background:linear-gradient(135deg,#8B7355,#6B5435);height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:.8rem;gap:.5rem">
+            <i class="fas fa-image" style="font-size:2.5rem"></i><span>قبل</span>
+          </div>
+          <div style="background:linear-gradient(135deg,var(--w500),var(--w300));height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,.85);font-size:.8rem;gap:.5rem">
+            <i class="fas fa-star" style="font-size:2.5rem"></i><span>بعد</span>
+          </div>
+        </div>
+        <div style="padding:1.2rem">
+          <div style="font-weight:700;color:var(--txt);margin-bottom:.3rem">خزانة حائطية — حي الملقا</div>
+          <div style="font-size:.88rem;color:var(--muted)">خزانة بالكامل من الخشب الطبيعي مع إضاءة داخلية وتنظيم مدروس</div>
+        </div>
+      </div>
+      <div class="reveal" style="background:#fff;border-radius:var(--r2);overflow:hidden;box-shadow:var(--sh1)">
+        <div style="display:grid;grid-template-columns:1fr 1fr">
+          <div style="background:linear-gradient(135deg,#8B7355,#6B5435);height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:.8rem;gap:.5rem">
+            <i class="fas fa-image" style="font-size:2.5rem"></i><span>قبل</span>
+          </div>
+          <div style="background:linear-gradient(135deg,var(--w500),var(--w300));height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,.85);font-size:.8rem;gap:.5rem">
+            <i class="fas fa-star" style="font-size:2.5rem"></i><span>بعد</span>
+          </div>
+        </div>
+        <div style="padding:1.2rem">
+          <div style="font-weight:700;color:var(--txt);margin-bottom:.3rem">غرفة نوم كاملة — شمال الرياض</div>
+          <div style="font-size:.88rem;color:var(--muted)">تفصيل غرفة نوم مخصصة كاملة من السرير إلى الخزانة والمرآة</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOOGLE MAP -->
+<section class="section">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__label">موقعنا</div>
+      <h2 class="section__title">زُرنا في <em>الرياض</em></h2>
+      <p class="section__subtitle">نعمل في جميع أحياء الرياض ونصل إليك أينما كنت</p>
+    </div>
+    <div class="reveal" style="border-radius:var(--r3);overflow:hidden;box-shadow:var(--sh2);margin-top:2rem">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.674429539046!2d46.6752!3d24.6877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQxJzE1LjciTiA0NsKwNDAnMzEuMSJF!5e0!3m2!1sar!2ssa!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" title="موقع مينا فني نجارة الرياض"></iframe>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:2rem">
+      <div style="text-align:center;padding:1.5rem;background:var(--c200);border-radius:var(--r2)">
+        <i class="fas fa-map-marker-alt" style="font-size:1.5rem;color:var(--g500);margin-bottom:.7rem"></i>
+        <div style="font-weight:700;margin-bottom:.3rem">موقعنا</div>
+        <div style="color:var(--muted);font-size:.9rem">الرياض، المملكة العربية السعودية</div>
+      </div>
+      <div style="text-align:center;padding:1.5rem;background:var(--c200);border-radius:var(--r2)">
+        <i class="fas fa-clock" style="font-size:1.5rem;color:var(--g500);margin-bottom:.7rem"></i>
+        <div style="font-weight:700;margin-bottom:.3rem">ساعات العمل</div>
+        <div style="color:var(--muted);font-size:.9rem">السبت – الخميس: ٨ص – ٩م</div>
+      </div>
+      <div style="text-align:center;padding:1.5rem;background:var(--c200);border-radius:var(--r2)">
+        <i class="fas fa-phone" style="font-size:1.5rem;color:var(--g500);margin-bottom:.7rem"></i>
+        <div style="font-weight:700;margin-bottom:.3rem">اتصل بنا</div>
+        <div style="color:var(--muted);font-size:.9rem"><a href="tel:0566099742" style="color:var(--g500)">0566099742</a></div>
+      </div>
+      <div style="text-align:center;padding:1.5rem;background:var(--c200);border-radius:var(--r2)">
+        <i class="fas fa-map-signs" style="font-size:1.5rem;color:var(--g500);margin-bottom:.7rem"></i>
+        <div style="font-weight:700;margin-bottom:.3rem">نطاق الخدمة</div>
+        <div style="color:var(--muted);font-size:.9rem">جميع أحياء الرياض</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section--tint">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__label">أسئلة شائعة</div>
+      <h2 class="section__title">الأسئلة <em>المتكررة</em></h2>
+    </div>
+    <div class="faq reveal">
+      <div class="faq__item">
+        <button class="faq__q" onclick="toggleFaq(this)">
+          ما هي مناطق الخدمة التي تغطّونها في الرياض؟
+          <i class="fas fa-chevron-down faq__icon"></i>
+        </button>
+        <div class="faq__a">
+          <p>نغطي جميع أحياء الرياض بما فيها: حي النرجس، حي الملقا، حي الياسمين، حي العارض، شمال الرياض، وسط الرياض، وجميع الأحياء الأخرى. نرسل فريقًا إلى موقعك بدون رسوم زيارة إضافية.</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" onclick="toggleFaq(this)">
+          هل تقدمون ضمانًا على أعمالكم؟
+          <i class="fas fa-chevron-down faq__icon"></i>
+        </button>
+        <div class="faq__a">
+          <p>نعم، نقدم ضمانًا شاملًا على جميع أعمالنا. يشمل الضمان الهيكل الخشبي ومواد التشطيب والتركيب. مدة الضمان تتراوح بين سنة وثلاث سنوات حسب نوع العمل.</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" onclick="toggleFaq(this)">
+          كيف يمكنني الحصول على عرض سعر؟
+          <i class="fas fa-chevron-down faq__icon"></i>
+        </button>
+        <div class="faq__a">
+          <p>يمكنك التواصل معنا عبر واتساب أو الاتصال المباشر، وسيزورك أحد مصممينا لمعاينة الموقع ومناقشة احتياجاتك، ثم نُرسل لك عرض السعر خلال ٢٤ ساعة مجانًا.</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" onclick="toggleFaq(this)">
+          ما هي أنواع الأخشاب التي تستخدمونها؟
+          <i class="fas fa-chevron-down faq__icon"></i>
+        </button>
+        <div class="faq__a">
+          <p>نستخدم مجموعة متنوعة من الأخشاب عالية الجودة حسب احتياجات العميل: خشب الزان، البلوط، الجوز، الصنوبر، وأخشاب الـ MDF المطلية. نستورد مواد التشطيب من إيطاليا وألمانيا.</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" onclick="toggleFaq(this)">
+          كم يستغرق تنفيذ مطبخ أو خزانة كاملة؟
+          <i class="fas fa-chevron-down faq__icon"></i>
+        </button>
+        <div class="faq__a">
+          <p>يعتمد على حجم المشروع وتعقيده. عادةً تستغرق المطابخ من ٧ إلى ١٤ يوم عمل، والخزائن من ٥ إلى ١٠ أيام. نُحدّد الجدول الزمني الدقيق بعد المعاينة والتصميم.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section--dark" style="text-align:center">
+  <div class="container">
+    <div class="section__label" style="margin:0 auto 1rem">ابدأ مشروعك</div>
+    <h2 class="section__title" style="color:var(--c100)">هل أنت مستعد <em>لبدء مشروعك؟</em></h2>
+    <p style="color:var(--c400);margin-bottom:2.5rem;max-width:500px;margin-left:auto;margin-right:auto">تواصل معنا الآن للحصول على استشارة مجانية وعرض سعر بدون التزام</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="https://wa.me/966566099742" class="btn btn--gold" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+      </a>
+      <a href="tel:0566099742" class="btn btn--outline">
+        <i class="fas fa-phone"></i> اتصل الآن
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Fixed Call Button (Mobile) -->
+<a href="tel:0566099742" class="call-fixed" aria-label="اتصل بنا"><i class="fas fa-phone"></i></a>
+
+<footer id="site-footer" class="footer"></footer>
+<footer style="text-align:center;padding:15px;font-size:13px;">Design &amp; Develop by <a href="" target="_blank" style="color:#c89b3c;font-weight:bold;text-decoration:none;">Bola Adel</a></footer>
+
+<script src="components.js"></script>
+<script>
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const icon = btn.querySelector('.faq__icon');
+  const isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq__a.open').forEach(a => { a.classList.remove('open'); a.previousElementSibling.querySelector('.faq__icon').style.transform='rotate(0)'; });
+  if (!isOpen) { answer.classList.add('open'); icon.style.transform='rotate(180deg)'; }
+}
+</script>
+</body>
+</html>

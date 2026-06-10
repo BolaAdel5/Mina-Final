@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>آراء العملاء | مينا فني نجارة — نجار الرياض</title>
+<meta name="description" content="اقرأ آراء وتقييمات عملاء مينا فني نجارة — أكثر من ٦٠٠ عميل راضٍ في الرياض. تفصيل مطابخ وخزائن وأثاث مخصص بأعلى جودة."/>
+<link rel="canonical" href="https://najarriyadih.com/reviews.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.page-hero{background:var(--dbg);padding:8rem 0 4rem;text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 40%,rgba(200,146,42,.12),transparent)}
+.page-hero__label{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--g400);background:rgba(200,146,42,.12);border:1px solid rgba(200,146,42,.28);padding:.3rem 1rem;border-radius:999px;margin-bottom:1rem}
+.page-hero__title{font-family:var(--fd);font-size:clamp(2.2rem,5vw,3.5rem);font-weight:700;color:#fff;margin-bottom:1rem}
+.page-hero__title em{color:var(--g400);font-style:normal}
+.breadcrumb{display:flex;align-items:center;gap:.5rem;justify-content:center;margin-top:1.5rem;color:var(--c400);font-size:.88rem}
+.breadcrumb a{color:var(--g300)}
+
+.rating-summary{background:linear-gradient(135deg,var(--w700),var(--w600));border-radius:var(--r3);padding:3rem;text-align:center;margin-bottom:4rem;box-shadow:var(--sh3)}
+.rating-big{font-family:var(--fd);font-size:5rem;font-weight:700;color:var(--g300);line-height:1}
+.rating-stars{color:var(--g400);font-size:1.8rem;margin:.5rem 0}
+.rating-count{color:rgba(255,220,170,.75);font-size:.95rem}
+.rating-bars{margin-top:2rem;display:grid;gap:.7rem;max-width:400px;margin:2rem auto 0}
+.rating-bar{display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center}
+.rating-bar__track{height:8px;background:rgba(255,255,255,.1);border-radius:999px;overflow:hidden}
+.rating-bar__fill{height:100%;background:var(--g400);border-radius:999px;transition:width 1s ease}
+.rating-bar__label{color:rgba(255,220,170,.75);font-size:.88rem;white-space:nowrap}
+
+.reviews__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
+.review-card{background:#fff;border-radius:var(--r2);padding:1.8rem;box-shadow:var(--sh1);transition:transform var(--d),box-shadow var(--d);border:1px solid var(--c300)}
+.review-card:hover{transform:translateY(-4px);box-shadow:var(--sh2)}
+.review-card__header{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+.review-card__avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--w500),var(--w300));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.2rem;flex-shrink:0}
+.review-card__name{font-weight:700;color:var(--txt);margin-bottom:.2rem}
+.review-card__meta{font-size:.82rem;color:var(--muted)}
+.review-card__stars{color:var(--g400);font-size:.9rem;margin-bottom:.8rem}
+.review-card__text{color:var(--muted);line-height:1.8;font-size:.93rem}
+.review-card__service{display:inline-flex;align-items:center;gap:.4rem;margin-top:.8rem;background:var(--c200);color:var(--w500);font-size:.8rem;font-weight:700;padding:.3rem .8rem;border-radius:999px}
+.review-card--featured{background:linear-gradient(135deg,var(--w700),var(--w600));color:#fff;border-color:transparent}
+.review-card--featured .review-card__name{color:var(--g300)}
+.review-card--featured .review-card__meta{color:var(--c400)}
+.review-card--featured .review-card__text{color:var(--c300)}
+.review-card--featured .review-card__service{background:rgba(200,146,42,.2);color:var(--g300)}
+.review-card__quote{font-size:3rem;color:var(--g400);line-height:1;margin-bottom:.5rem;opacity:.5}
+
+.filter-bar{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.filter-btn{padding:.55rem 1.2rem;border-radius:999px;border:1.5px solid var(--c300);background:transparent;color:var(--txt);font-family:var(--fb);font-size:.88rem;font-weight:600;cursor:pointer;transition:all .2s}
+.filter-btn:hover,.filter-btn.active{background:var(--w500);color:#fff;border-color:var(--w500)}
+
+.stats-band{background:linear-gradient(135deg,var(--w700),var(--w600));padding:4rem 0;text-align:center}
+.stats-band__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem}
+.stat-item__num{font-family:var(--fd);font-size:clamp(2.5rem,5vw,4rem);font-weight:700;color:var(--g300);line-height:1}
+.stat-item__label{color:rgba(255,220,170,.75);font-size:.95rem;margin-top:.4rem}
+
+.faq{max-width:760px;margin:3rem auto 0}
+.faq__item{border-bottom:1px solid var(--c300)}
+.faq__q{width:100%;text-align:right;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 0;font-weight:700;font-size:1rem;color:var(--txt);cursor:pointer;gap:1rem;background:none;border:none;font-family:var(--fb)}
+.faq__q:hover{color:var(--g500)}
+.faq__icon{color:var(--g500);font-size:.85rem;transition:transform .3s;flex-shrink:0}
+.faq__a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s}
+.faq__a.open{max-height:400px;padding-bottom:1rem}
+.faq__a p{color:var(--muted);line-height:1.8;font-size:.95rem}
+.call-fixed{display:none;position:fixed;bottom:1.5rem;left:1.5rem;z-index:999;background:var(--w500);color:#fff;width:56px;height:56px;border-radius:50%;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 4px 20px rgba(90,40,10,.4);transition:transform .2s}
+.call-fixed:hover{transform:scale(1.1)}
+@media(max-width:768px){.call-fixed{display:flex}}
+</style>
+</head>
+<body data-page="reviews">
+<header id="site-header"></header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero__label"><i class="fas fa-star"></i> التقييمات</div>
+    <h1 class="page-hero__title">آراء <em>عملائنا</em></h1>
+    <p style="color:var(--c300);font-size:1.05rem;max-width:560px;margin:0 auto">أكثر من ٦٠٠ عميل وثقوا بنا — اقرأ تجاربهم الحقيقية مع مينا فني نجارة</p>
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+      <span>/</span>
+      <span>آراء العملاء</span>
+    </nav>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-band__grid">
+      <div class="stat-item"><div class="stat-item__num">٥.٠</div><div class="stat-item__label">متوسط التقييم / ٥</div></div>
+      <div class="stat-item"><div class="stat-item__num">+٦٠٠</div><div class="stat-item__label">عميل راضٍ</div></div>
+      <div class="stat-item"><div class="stat-item__num">٩٨٪</div><div class="stat-item__label">يوصون بخدماتنا</div></div>
+      <div class="stat-item"><div class="stat-item__num">٢٠+</div><div class="stat-item__label">عامًا من الثقة</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS SECTION -->
+<section class="section">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__label">التقييمات</div>
+      <h2 class="section__title">ماذا يقول <em>عملاؤنا</em></h2>
+      <p class="section__subtitle">تقييمات حقيقية من عملاء حقيقيين في مختلف أحياء الرياض</p>
+    </div>
+
+    <!-- Rating Summary -->
+    <div class="rating-summary reveal">
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center;max-width:700px;margin:0 auto" class="responsive-rating">
+        <div>
+          <div class="rating-big">٥.٠</div>
+          <div class="rating-stars">★★★★★</div>
+          <div class="rating-count">بناءً على ٦٠٠+ تقييم</div>
+        </div>
+        <div class="rating-bars">
+          <div class="rating-bar"><span class="rating-bar__label">٥ نجوم</span><div class="rating-bar__track"><div class="rating-bar__fill" style="width:94%"></div></div><span class="rating-bar__label" style="color:var(--g300)">٩٤٪</span></div>
+          <div class="rating-bar"><span class="rating-bar__label">٤ نجوم</span><div class="rating-bar__track"><div class="rating-bar__fill" style="width:4%"></div></div><span class="rating-bar__label" style="color:var(--g300)">٤٪</span></div>
+          <div class="rating-bar"><span class="rating-bar__label">٣ نجوم</span><div class="rating-bar__track"><div class="rating-bar__fill" style="width:1%"></div></div><span class="rating-bar__label" style="color:var(--g300)">١٪</span></div>
+          <div class="rating-bar"><span class="rating-bar__label">٢ نجوم</span><div class="rating-bar__track"><div class="rating-bar__fill" style="width:1%"></div></div><span class="rating-bar__label" style="color:var(--g300)">١٪</span></div>
+          <div class="rating-bar"><span class="rating-bar__label">١ نجمة</span><div class="rating-bar__track"><div class="rating-bar__fill" style="width:0%"></div></div><span class="rating-bar__label" style="color:var(--g300)">٠٪</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" onclick="filterReviews('all',this)">الكل</button>
+      <button class="filter-btn" onclick="filterReviews('kitchen',this)">مطابخ</button>
+      <button class="filter-btn" onclick="filterReviews('wardrobe',this)">خزائن</button>
+      <button class="filter-btn" onclick="filterReviews('furniture',this)">أثاث</button>
+      <button class="filter-btn" onclick="filterReviews('doors',this)">أبواب</button>
+      <button class="filter-btn" onclick="filterReviews('repair',this)">صيانة</button>
+    </div>
+
+    <div class="reviews__grid" id="reviewsGrid">
+
+      <div class="review-card review-card--featured reveal" data-cat="kitchen">
+        <div class="review-card__quote">"</div>
+        <div class="review-card__stars">★★★★★</div>
+        <div class="review-card__text">طلبت تفصيل مطبخ كامل لفيلتي في حي النرجس. كان الفريق محترفًا جدًا من أول معاينة حتى آخر لمسة. التصميم جاء أفضل من توقعاتي والإنجاز في الموعد المحدد.</div>
+        <div class="review-card__header" style="margin-top:1rem">
+          <div class="review-card__avatar">ع</div>
+          <div><div class="review-card__name">عبدالله الزهراني</div><div class="review-card__meta">حي النرجس، الرياض • ٢٠٢٤</div></div>
+        </div>
+        <div class="review-card__service"><i class="fas fa-utensils"></i> تفصيل مطابخ</div>
+      </div>
+
+      <div class="review-card reveal" data-cat="wardrobe">
+        <div class="review-card__quote">"</div>
+        <div class="review-card__stars">★★★★★</div>
+        <div class="review-card__text">عملت معهم خزانة غرفة النوم الرئيسية وخزانة الأطفال. الشغل نظيف جدًا والخشب عالي الجودة. الأسعار معقولة مقارنةً بالجودة. أنصح بهم بشدة.</div>
+        <div class="review-card__header" style="margin-top:1rem">
+          <div class="review-card__avatar">م</div>
+          <div><div class="review-card__name">محمد الغامدي</div><div class="review-card__meta">حي الملقا، الرياض • ٢٠٢٤</div></div>
+        </div>
+        <div class="review-card__service"><i class="fas fa-door-closed"></i> تفصيل خزائن</div>
+      </div>
+
+      <div class="review-card reveal" data-cat="furniture">
+        <div class="review-card__quote">"</div>
+        <div class="review-card__stars">★★★★★</div>
+        <div class="review-card__text">فصّلت معهم غرفة نوم كاملة لابنتي. التصميم كان حلم وما قصّروا في التنفيذ. الدهانات والتشطيبات ممتازة. صراحة أعلى من توقعاتي.</div>
+        <div class="review-card__header" style="margin-top:1rem">
+          <div class="review-card__avatar">ن</div>
+          <div><div class="review-card__name">نورة السعدي</div><div class="review-card__meta">شمال الرياض • ٢٠٢٤</div></div>
+        </div>
+        <div class="review-card__service"><i class="fas fa-couch"></i> أثاث مخصص</div>
+      </div>
+
+      <div class="review-card reveal" data-cat="kitchen">
+        <div class="review-card__quote">"</div>
+        <div class="review-card__stars">★★★★★</div>
+        <div class="review-card__text">المطبخ اللي نفّذوه لي في حي الياسمين جميل جدًا. استخدموا مواد عالية الجودة والتركيب كان دقيق. حتى الجيران سألوا عنهم بعد ما شافوا الشغل!</div>
+        <div class="review-card__header" style="margin-top:1rem">
+          <div class="review-card__avatar">ف</div>
+          <div><div class="review-card__name">فيصل الحربي</div><div class="review-card__meta">حي الياسمين، الرياض • ٢٠٢٣</div></div>
+        </div>
+        <div class="review-card__service"><i class="fas fa-utensils"></i> تفصيل مطابخ</div>
+      </div>
+
+      <div class="review-card reveal" data-cat="doors">
+        <div class="review-card__quote">"</div>
+        <div class="review-card__stars">★★★★★</div>
+        <div class="review-card__text">طلبت منهم أبواب داخلية للفيلا كاملة مع نقوش مخصصة. الشغل اليدوي كان رائع والتسليم في الوقت المحدد. سعر عادل جدًا لهذا المستوى من الجودة.</div>
+        <div class="review-card__header" style="margin-top:1rem">
+          <div class="review-card__avatar">ر</div>
+          <div><div class="review-card__name">رائد الدوسري</div><div class="review-card__meta">حي العارض، الرياض • ٢٠٢٣</div></div>
+        </div>
+        <div class="review-card__service"><i class="fas fa-door-open"></i> أبواب خشبية</div>
+      </div>
+
+      <div class="review-card reveal" data-cat="wardrobe">
+        <div class="review-card__quote">"</div>
+        <div class="review-card__stars">★★★★★</div>
+        <div class="review-card__text">خزانة الممر اللي صنعوها لي استغلّت المساحة بشكل ذكي جدًا. المصمم اقترح تصاميم ما كنت أفكر فيها وكانت أفضل بكثير. ممنون جدًا.</div>
+        <div class="review-card__header" style="margin-top:1rem">
+          <div class="review-card__avatar">خ</div>
+          <div><div class="review-card__name">خالد المطيري</div><div class="review-card__meta">حي النرجس، الرياض • ٢٠٢٣</div></div>
+        </div>
+        <div class="review-card__service"><i class="fas fa-door-closed"></i> تفصيل خزائن</div>
+      </div>
+
+      <div class="review-card reveal" data-cat="repair">
+        <div class="review-card__quote">"</div>
+        <div class="review-card__stars">★★★★★</div>
+        <div class="review-card__text">جاء الفريق لإصلاح مطبخي القديم وجدّده بشكل كامل. كنت أتوقع يقولون لازم تغييره بالكامل بس هم صلّحوه وحسّنوه بتكلفة معقولة جدًا.</div>
+        <div class="review-card__header" style="margin-top:1rem">
+          <div class="review-card__avatar">س</div>
+          <div><div class="review-card__name">سلمى العتيبي</div><div class="review-card__meta">وسط الرياض • ٢٠٢٣</div></div>
+        </div>
+        <div class="review-card__service"><i class="fas fa-tools"></i> صيانة وإصلاح</div>
+      </div>
+
+      <div class="review-card reveal" data-cat="furniture">
+        <div class="review-card__quote">"</div>
+        <div class="review-card__stars">★★★★★</div>
+        <div class="review-card__text">طاولة المكتبة الحائطية اللي صنعوها لي في المكتب أصبحت محط إعجاب كل زوار المكتب. الخشب الطبيعي والتشطيب الراقي يعطيان انطباعًا ممتازًا عن شركتي.</div>
+        <div class="review-card__header" style="margin-top:1rem">
+          <div class="review-card__avatar">ط</div>
+          <div><div class="review-card__name">طارق الشمري</div><div class="review-card__meta">حي الملقا، الرياض • ٢٠٢٣</div></div>
+        </div>
+        <div class="review-card__service"><i class="fas fa-couch"></i> أثاث مكاتب</div>
+      </div>
+
+      <div class="review-card reveal" data-cat="kitchen">
+        <div class="review-card__quote">"</div>
+        <div class="review-card__stars">★★★★★</div>
+        <div class="review-card__text">ثالث مرة أتعامل معهم وكل مرة أكون أكثر رضا. هذه المرة فصّلوا مطبخ الملحق ونفّذوا خزانات غرفة الضيوف. التواصل والمتابعة ممتازة طول المشروع.</div>
+        <div class="review-card__header" style="margin-top:1rem">
+          <div class="review-card__avatar">أ</div>
+          <div><div class="review-card__name">أحمد الزيد</div><div class="review-card__meta">شمال الرياض • ٢٠٢٤</div></div>
+        </div>
+        <div class="review-card__service"><i class="fas fa-utensils"></i> تفصيل مطابخ</div>
+      </div>
+
+      <div class="review-card reveal" data-cat="wardrobe">
+        <div class="review-card__quote">"</div>
+        <div class="review-card__stars">★★★★★</div>
+        <div class="review-card__text">عملت خزانة ملابس بالكامل للغرفة الرئيسية، الحجم والتصميم رهيب. الأدراج الداخلية والتقسيمات أضافت تنظيمًا رائعًا. شغل نظيف ١٠٠٪.</div>
+        <div class="review-card__header" style="margin-top:1rem">
+          <div class="review-card__avatar">و</div>
+          <div><div class="review-card__name">وليد القحطاني</div><div class="review-card__meta">حي العارض، الرياض • ٢٠٢٤</div></div>
+        </div>
+        <div class="review-card__service"><i class="fas fa-door-closed"></i> تفصيل خزائن</div>
+      </div>
+
+      <div class="review-card reveal" data-cat="furniture">
+        <div class="review-card__quote">"</div>
+        <div class="review-card__stars">★★★★★</div>
+        <div class="review-card__text">صنعوا لي مكتبة حائطية في الصالة وطاولة طعام من خشب طبيعي. المنتجين أصبحا قطعتي الفن الأجمل في البيت. الجميع يمدحهم عند الزيارة.</div>
+        <div class="review-card__header" style="margin-top:1rem">
+          <div class="review-card__avatar">د</div>
+          <div><div class="review-card__name">دعاء الأحمدي</div><div class="review-card__meta">حي النرجس، الرياض • ٢٠٢٤</div></div>
+        </div>
+        <div class="review-card__service"><i class="fas fa-couch"></i> أثاث مخصص</div>
+      </div>
+
+      <div class="review-card reveal" data-cat="doors">
+        <div class="review-card__quote">"</div>
+        <div class="review-card__stars">★★★★★</div>
+        <div class="review-card__text">الباب الرئيسي للفيلا الذي صنعوه أصبح نقطة الجذب الأولى للزوار. النقوش اليدوية دقيقة جدًا والخشب ثقيل ومتين. أشعر بالفخر كل ما أراه.</div>
+        <div class="review-card__header" style="margin-top:1rem">
+          <div class="review-card__avatar">ب</div>
+          <div><div class="review-card__name">بندر السبيعي</div><div class="review-card__meta">شمال الرياض • ٢٠٢٣</div></div>
+        </div>
+        <div class="review-card__service"><i class="fas fa-door-open"></i> أبواب خشبية</div>
+      </div>
+
+    </div>
+
+    <!-- Load More -->
+    <div style="text-align:center;margin-top:3rem">
+      <button class="btn btn--primary" onclick="loadMore()"><i class="fas fa-plus"></i> عرض المزيد من التقييمات</button>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO TESTIMONIALS PLACEHOLDER -->
+<section class="section section--tint">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__label">شهادات مرئية</div>
+      <h2 class="section__title">قصص نجاح <em>حقيقية</em></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem" class="reveal">
+      <div style="background:var(--dbg);border-radius:var(--r2);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:opacity .2s;position:relative;overflow:hidden">
+        <div style="text-align:center;color:rgba(255,255,255,.6)">
+          <div style="width:64px;height:64px;border-radius:50%;background:rgba(200,146,42,.3);display:flex;align-items:center;justify-content:center;margin:0 auto .8rem;font-size:1.5rem;color:var(--g400)"><i class="fas fa-play"></i></div>
+          <div style="font-size:.9rem">تجربة أحمد — مطبخ حي النرجس</div>
+        </div>
+      </div>
+      <div style="background:var(--dbg);border-radius:var(--r2);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;cursor:pointer">
+        <div style="text-align:center;color:rgba(255,255,255,.6)">
+          <div style="width:64px;height:64px;border-radius:50%;background:rgba(200,146,42,.3);display:flex;align-items:center;justify-content:center;margin:0 auto .8rem;font-size:1.5rem;color:var(--g400)"><i class="fas fa-play"></i></div>
+          <div style="font-size:.9rem">قصة نورة — خزانة الملقا</div>
+        </div>
+      </div>
+      <div style="background:var(--dbg);border-radius:var(--r2);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;cursor:pointer">
+        <div style="text-align:center;color:rgba(255,255,255,.6)">
+          <div style="width:64px;height:64px;border-radius:50%;background:rgba(200,146,42,.3);display:flex;align-items:center;justify-content:center;margin:0 auto .8rem;font-size:1.5rem;color:var(--g400)"><i class="fas fa-play"></i></div>
+          <div style="font-size:.9rem">رحلة فيصل — غرفة نوم شمال الرياض</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHARE YOUR REVIEW -->
+<section class="section section--dark" style="text-align:center">
+  <div class="container">
+    <div class="section__label" style="margin:0 auto 1rem"><i class="fas fa-pen"></i> شاركنا رأيك</div>
+    <h2 class="section__title" style="color:var(--c100)">هل تعاملت معنا <em>من قبل؟</em></h2>
+    <p style="color:var(--c400);margin-bottom:2.5rem;max-width:500px;margin-left:auto;margin-right:auto">رأيك يهمنا ويساعد عملاء آخرين على اتخاذ قراراتهم. شاركنا تقييمك عبر واتساب</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="https://wa.me/966566099742?text=أود%20مشاركة%20تقييمي%20عن%20خدمات%20مينا%20فني%20نجارة" class="btn btn--gold" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i> شارك تقييمك عبر واتساب
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section--tint">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__label">أسئلة شائعة</div>
+      <h2 class="section__title">أسئلة <em>يسألها العملاء</em></h2>
+    </div>
+    <div class="faq reveal">
+      <div class="faq__item">
+        <button class="faq__q" onclick="toggleFaq(this)">هل التقييمات حقيقية من عملاء فعليين؟<i class="fas fa-chevron-down faq__icon"></i></button>
+        <div class="faq__a"><p>نعم، جميع التقييمات المعروضة من عملاء تعاملوا فعلًا مع مينا فني نجارة في الرياض. نحن نؤمن بالشفافية الكاملة ولا نقبل أي تقييمات مزورة.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" onclick="toggleFaq(this)">كيف أترك تقييمًا بعد الانتهاء من مشروعي؟<i class="fas fa-chevron-down faq__icon"></i></button>
+        <div class="faq__a"><p>يمكنك مشاركة تقييمك عبر واتساب أو عبر جوجل ماب. سيتواصل معك أحد فريقنا بعد انتهاء المشروع لأخذ رأيك.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" onclick="toggleFaq(this)">هل يمكنني التواصل مع أحد العملاء السابقين كمرجع؟<i class="fas fa-chevron-down faq__icon"></i></button>
+        <div class="faq__a"><p>يمكننا بناءً على طلبك ترشيح عملاء سابقين وافقوا على أن يكونوا مراجع لمشاريعنا. تواصل معنا عبر واتساب لترتيب ذلك.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" onclick="toggleFaq(this)">ماذا لو لم أكن راضيًا عن العمل؟<i class="fas fa-chevron-down faq__icon"></i></button>
+        <div class="faq__a"><p>رضاك هو أولويتنا القصوى. إذا كان هناك أي جانب لم يرقَ لتوقعاتك، نلتزم بتصحيحه مجانًا. ضماننا يغطي كل أعمالنا.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a href="tel:0566099742" class="call-fixed" aria-label="اتصل بنا"><i class="fas fa-phone"></i></a>
+<footer id="site-footer" class="footer"></footer>
+<footer style="text-align:center;padding:15px;font-size:13px;">Design &amp; Develop by <a href="" target="_blank" style="color:#c89b3c;font-weight:bold;text-decoration:none;">Bola Adel</a></footer>
+
+<script src="components.js"></script>
+<script>
+function toggleFaq(btn){const a=btn.nextElementSibling,i=btn.querySelector('.faq__icon'),o=a.classList.contains('open');document.querySelectorAll('.faq__a.open').forEach(x=>{x.classList.remove('open');x.previousElementSibling.querySelector('.faq__icon').style.transform='rotate(0)'});if(!o){a.classList.add('open');i.style.transform='rotate(180deg)'}}
+function filterReviews(cat,btn){document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.review-card').forEach(card=>{if(cat==='all'||card.dataset.cat===cat){card.style.display='block'}else{card.style.display='none'}})}
+function loadMore(){alert('سيتم إضافة المزيد من التقييمات قريبًا!')}
+</script>
+</body>
+</html>
