@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://najarriyadih.com/sitemap.xml
