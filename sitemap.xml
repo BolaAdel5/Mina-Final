@@ -1,24 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url>
-    <loc>https://najarriyadih.com/</loc>
-  </url>
+<url><loc>https://najarriyadih.com/</loc></url>
+<url><loc>https://najarriyadih.com/about.html</loc></url>
+<url><loc>https://najarriyadih.com/blog.html</loc></url>
+<url><loc>https://najarriyadih.com/gallery.html</loc></url>
+<url><loc>https://najarriyadih.com/reviews.html</loc></url>
 
-  <url>
-    <loc>https://najarriyadih.com/about.html</loc>
-  </url>
-
-  <url>
-    <loc>https://najarriyadih.com/blog.html</loc>
-  </url>
-
-  <url>
-    <loc>https://najarriyadih.com/gallery.html</loc>
-  </url>
-
-  <url>
-    <loc>https://najarriyadih.com/reviews.html</loc>
-  </url>
+<url><loc>https://najarriyadih.com/blog/afzal-khashab-matabikh.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/asaar-tafseel-matabikh.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/dawaa-mdf-vs-khashab-tabiei.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/dhman-jodat-najar.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/hay-malqa-khazain.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/hay-narjis-matabikh.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/istekhdamal-makan-matabikh.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/khazain-office-riyadh.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/khazain-walburoz.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/mahtharat-matabikh-riyadh.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/mashroo-matabikh-step-by-step.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/matabikh-modern-classic.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/najar-hay-malqa.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/najar-hay-narjis.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/najar-riyadh-khebra.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/najar-riyadh.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/najar-shamal-riyadh.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/riyadh-hay-yasmin-najar.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/shamal-riyadh-athas.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/siyanta-athas-khashabia.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/tafseel-abwab-riyadh.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/tafseel-khazain-riyadh.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/tafseel-maktaba-jidaria.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/tafseel-matabikh-riyadh.html</loc></url>
+<url><loc>https://najarriyadih.com/blog/tasmeem-khazain-ghorf.html</loc></url>
 
 </urlset>
