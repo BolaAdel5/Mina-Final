@@ -4,53 +4,48 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>معرض الأعمال | مينا فني نجارة — نجار الرياض</title>
-<meta name="description" content="معرض أعمال مينا فني نجارة في الرياض — صور مطابخ، خزائن، أثاث مخصص وأبواب خشبية. أكثر من ٦٠ صورة لمشاريع منجزة."/>
+<meta name="description" content="معرض أعمال حقيقية لمينا فني نجارة في الرياض — خزائن، أثاث مخصص، وحدات تلفزيون، تسريحات. أكثر من ٢٠ صورة من مشاريع منجزة."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <link rel="stylesheet" href="style.css"/>
 <style>
-.gallery-full__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
+.gfull-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.gfull-item{position:relative;border-radius:var(--r2);overflow:hidden;aspect-ratio:4/3;cursor:pointer;background:var(--c200)}
+.gfull-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease,filter .4s ease;filter:brightness(.97)}
+.gfull-item:hover img{transform:scale(1.06);filter:brightness(1.04)}
+.gfull-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,5,2,.82) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:1rem 1.1rem;opacity:0;transition:opacity .3s ease}
+.gfull-item:hover .gfull-overlay{opacity:1}
+.gfull-badge{display:inline-flex;align-items:center;gap:.3rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;color:var(--g300);background:rgba(200,146,42,.2);border:1px solid rgba(200,146,42,.35);padding:.18rem .6rem;border-radius:999px;width:fit-content;margin-bottom:.35rem}
+.gfull-title{color:#fff;font-weight:700;font-size:.92rem;line-height:1.3}
+.gfull-zoom{position:absolute;top:.8rem;left:.8rem;width:34px;height:34px;border-radius:50%;background:rgba(200,146,42,.25);border:1.5px solid rgba(200,146,42,.5);color:var(--g300);display:flex;align-items:center;justify-content:center;font-size:.75rem;opacity:0;transition:all .2s}
+.gfull-item:hover .gfull-zoom{opacity:1}
+.gfull-zoom:hover{background:var(--g500);color:var(--w900);transform:scale(1.1)}
+.gfull-item.hidden{display:none}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(8,4,2,.96);z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s ease;backdrop-filter:blur(8px)}
+.lightbox.open{opacity:1;pointer-events:all}
+.lightbox__content{position:relative;max-width:min(900px,94vw);max-height:92vh;display:flex;flex-direction:column;align-items:center;gap:1rem}
+.lightbox__img{max-width:100%;max-height:78vh;border-radius:var(--r2);object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,.7);transition:opacity .25s ease}
+.lightbox__img.loading{opacity:0}
+.lightbox__info{text-align:center;padding:.4rem 1rem}
+.lightbox__title{color:var(--g300);font-weight:700;font-size:1.05rem;margin-bottom:.25rem}
+.lightbox__close{position:fixed;top:1.2rem;left:1.2rem;width:42px;height:42px;border-radius:50%;background:rgba(200,146,42,.15);border:1.5px solid rgba(200,146,42,.3);color:var(--g300);display:flex;align-items:center;justify-content:center;font-size:1rem;z-index:2010;transition:all .2s}
+.lightbox__close:hover{background:rgba(200,146,42,.35);transform:rotate(90deg)}
+.lightbox__nav{position:fixed;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(200,146,42,.15);border:1.5px solid rgba(200,146,42,.3);color:var(--g300);display:flex;align-items:center;justify-content:center;font-size:1.1rem;z-index:2010;transition:all .2s}
+.lightbox__nav:hover{background:rgba(200,146,42,.3);color:#fff}
+.lightbox__nav--prev{right:1.2rem}
+.lightbox__nav--next{left:1.2rem}
+.lightbox__counter{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);color:var(--c400);font-size:.82rem;background:rgba(0,0,0,.5);padding:.28rem .9rem;border-radius:999px}
+
+@media(max-width:768px){
+  .gfull-grid{grid-template-columns:1fr 1fr;gap:.6rem}
+  .gfull-overlay{opacity:1;background:linear-gradient(to top,rgba(10,5,2,.7) 0%,transparent 55%)}
+  .gfull-zoom{opacity:1}
 }
-.gallery-full__item {
-  position: relative;
-  border-radius: var(--r2);
-  overflow: hidden;
-  aspect-ratio: 4/3;
-  cursor: pointer;
-  background: var(--c200);
-}
-.gallery-full__item img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform .5s ease, filter .5s ease;
-  filter: brightness(.96);
-}
-.gallery-full__item:hover img { transform: scale(1.07); filter: brightness(1.04); }
-.gallery-full__overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(10,5,2,.85) 0%, transparent 55%);
-  display: flex; flex-direction: column; justify-content: flex-end;
-  padding: 1rem 1.1rem;
-  opacity: 0; transition: opacity .3s ease;
-}
-.gallery-full__item:hover .gallery-full__overlay,
-.gallery-full__item .gallery-full__overlay { opacity: 1; }
-.gallery-full__badge {
-  display: inline-flex; align-items: center; gap: .3rem;
-  font-size: .7rem; font-weight: 800; letter-spacing: .08em;
-  color: var(--g300); background: rgba(200,146,42,.2);
-  border: 1px solid rgba(200,146,42,.35);
-  padding: .18rem .6rem; border-radius: 999px;
-  width: fit-content; margin-bottom: .35rem;
-}
-.gallery-full__title { color: #fff; font-weight: 700; font-size: .9rem; }
-.gallery-full__loc { color: rgba(240,220,180,.65); font-size: .75rem; margin-top: .15rem; }
-@media(max-width:480px){.gallery-full__grid{grid-template-columns:1fr 1fr;gap:.6rem}}
+@media(max-width:480px){.gfull-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body data-page="gallery">
@@ -62,10 +57,10 @@
       <i class="fas fa-images"></i> معرض الأعمال
     </div>
     <h1 style="font-family:var(--fd);font-size:clamp(2rem,5vw,3.2rem);font-weight:700;color:#fff;margin-bottom:1rem">
-      أعمالنا في <em style="color:var(--g400);font-style:normal">الرياض</em>
+      أعمالنا <em style="color:var(--g400);font-style:normal">الحقيقية</em>
     </h1>
     <p style="color:var(--c300);font-size:1rem;max-width:520px;margin:0 auto">
-      أكثر من ٦٠٠ مشروع منجز — إليك مختارات من أجمل ما صنعناه في مطابخ وخزائن وأثاث الرياض
+      صور حقيقية من مشاريع منجزة في الرياض — خزائن، أثاث مخصص، وحدات تلفزيون وتسريحات
     </p>
     <nav style="display:flex;align-items:center;gap:.5rem;justify-content:center;margin-top:1.5rem;color:var(--c400);font-size:.88rem">
       <a href="index.html" style="color:var(--g300)"><i class="fas fa-home"></i> الرئيسية</a>
@@ -76,148 +71,219 @@
 
 <section class="section">
   <div class="container">
+
     <!-- Filter -->
     <div class="gallery__filters reveal">
       <button class="gf-btn active" data-filter="all">الكل</button>
-      <button class="gf-btn" data-filter="kitchen">مطابخ</button>
       <button class="gf-btn" data-filter="wardrobe">خزائن</button>
       <button class="gf-btn" data-filter="furniture">أثاث</button>
-      <button class="gf-btn" data-filter="doors">أبواب</button>
+      <button class="gf-btn" data-filter="decor">ديكور</button>
+      <button class="gf-btn" data-filter="commercial">تجاري</button>
     </div>
 
-    <div class="gallery-full__grid" id="fullGallery">
+    <div class="gfull-grid" id="fullGallery">
 
-      <!-- KITCHENS -->
-      <div class="gallery-full__item reveal" data-cat="kitchen" data-title="مطبخ مودرن أبيض" data-desc="تفصيل مطبخ مودرن بخامات إيطالية — حي النرجس">
-        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80" alt="مطبخ مودرن أبيض" loading="lazy"/>
-        <div class="gallery-full__overlay">
-          <div class="gallery-full__badge"><i class="fas fa-utensils"></i> مطابخ</div>
-          <div class="gallery-full__title">مطبخ مودرن أبيض</div>
-          <div class="gallery-full__loc"><i class="fas fa-map-marker-alt" style="font-size:.65rem"></i> حي النرجس</div>
+      <!-- 1 -->
+      <div class="gfull-item reveal" data-cat="furniture" data-title="كومودينو أدراج أبيض مع سطح خشبي">
+        <img src="images/gallery/g01-dresser-white.jpg" alt="كومودينو أدراج أبيض" loading="lazy"/>
+        <div class="gfull-overlay">
+          <div class="gfull-badge"><i class="fas fa-couch"></i> أثاث</div>
+          <div class="gfull-title">كومودينو أدراج أبيض مع سطح خشبي</div>
         </div>
+        <button class="gfull-zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
       </div>
 
-      <div class="gallery-full__item reveal" data-cat="kitchen" data-title="مطبخ كلاسيكي دافئ" data-desc="مطبخ كلاسيكي بألوان خشبية دافئة — حي الملقا">
-        <img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=700&q=80" alt="مطبخ كلاسيكي دافئ" loading="lazy"/>
-        <div class="gallery-full__overlay">
-          <div class="gallery-full__badge"><i class="fas fa-utensils"></i> مطابخ</div>
-          <div class="gallery-full__title">مطبخ كلاسيكي دافئ</div>
-          <div class="gallery-full__loc"><i class="fas fa-map-marker-alt" style="font-size:.65rem"></i> حي الملقا</div>
+      <!-- 2 -->
+      <div class="gfull-item reveal" data-cat="furniture" data-title="درج سلّم داخلي مع تخزين أسود">
+        <img src="images/gallery/g02-stairs-black.jpg" alt="درج سلّم داخلي أسود" loading="lazy"/>
+        <div class="gfull-overlay">
+          <div class="gfull-badge"><i class="fas fa-couch"></i> أثاث</div>
+          <div class="gfull-title">درج سلّم داخلي مع تخزين أسود</div>
         </div>
+        <button class="gfull-zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
       </div>
 
-      <div class="gallery-full__item reveal" data-cat="kitchen" data-title="مطبخ رمادي عصري" data-desc="مطبخ مودرن رمادي مع جزيرة مركزية">
-        <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=700&q=80" alt="مطبخ رمادي عصري" loading="lazy"/>
-        <div class="gallery-full__overlay">
-          <div class="gallery-full__badge"><i class="fas fa-utensils"></i> مطابخ</div>
-          <div class="gallery-full__title">مطبخ رمادي عصري</div>
-          <div class="gallery-full__loc"><i class="fas fa-map-marker-alt" style="font-size:.65rem"></i> شمال الرياض</div>
+      <!-- 3 -->
+      <div class="gfull-item reveal" data-cat="decor" data-title="وحدة تلفزيون جدارية بلوح خشبي">
+        <img src="images/gallery/g03-tv-unit-wall.jpg" alt="وحدة تلفزيون جدارية" loading="lazy"/>
+        <div class="gfull-overlay">
+          <div class="gfull-badge"><i class="fas fa-tv"></i> ديكور</div>
+          <div class="gfull-title">وحدة تلفزيون جدارية بلوح خشبي</div>
         </div>
+        <button class="gfull-zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
       </div>
 
-      <div class="gallery-full__item reveal" data-cat="kitchen" data-title="مطبخ مفتوح فاخر" data-desc="مطبخ مفتوح على الصالة بتصميم مودرن">
-        <img src="https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?w=700&q=80" alt="مطبخ مفتوح فاخر" loading="lazy"/>
-        <div class="gallery-full__overlay">
-          <div class="gallery-full__badge"><i class="fas fa-utensils"></i> مطابخ</div>
-          <div class="gallery-full__title">مطبخ مفتوح فاخر</div>
-          <div class="gallery-full__loc"><i class="fas fa-map-marker-alt" style="font-size:.65rem"></i> حي العارض</div>
+      <!-- 4 -->
+      <div class="gfull-item reveal" data-cat="wardrobe" data-title="خزانة بنية داخلية بخطاطيف جدارية">
+        <img src="images/gallery/g04-wardrobe-brown-hooks.jpg" alt="خزانة بنية مع خطاطيف" loading="lazy"/>
+        <div class="gfull-overlay">
+          <div class="gfull-badge"><i class="fas fa-door-closed"></i> خزائن</div>
+          <div class="gfull-title">خزانة بنية داخلية بخطاطيف جدارية</div>
         </div>
+        <button class="gfull-zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
       </div>
 
-      <!-- WARDROBES -->
-      <div class="gallery-full__item reveal" data-cat="wardrobe" data-title="خزانة جدارية بيضاء" data-desc="خزانة ملابس جدارية من الأرض للسقف — حي الملقا">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80" alt="خزانة جدارية بيضاء" loading="lazy"/>
-        <div class="gallery-full__overlay">
-          <div class="gallery-full__badge"><i class="fas fa-door-closed"></i> خزائن</div>
-          <div class="gallery-full__title">خزانة جدارية بيضاء</div>
-          <div class="gallery-full__loc"><i class="fas fa-map-marker-alt" style="font-size:.65rem"></i> حي الملقا</div>
+      <!-- 5 -->
+      <div class="gfull-item reveal" data-cat="wardrobe" data-title="خزانة رمادية مفتوحة مع أدراج وأماكن تعليق">
+        <img src="images/gallery/g05-wardrobe-grey-open.jpg" alt="خزانة رمادية مفتوحة" loading="lazy"/>
+        <div class="gfull-overlay">
+          <div class="gfull-badge"><i class="fas fa-door-closed"></i> خزائن</div>
+          <div class="gfull-title">خزانة رمادية مفتوحة مع أدراج</div>
         </div>
+        <button class="gfull-zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
       </div>
 
-      <div class="gallery-full__item reveal" data-cat="wardrobe" data-title="خزانة منزلقة رمادية" data-desc="خزانة بأبواب منزلقة وإضاءة LED داخلية">
-        <img src="https://images.unsplash.com/photo-1631049552240-59c37f38802b?w=700&q=80" alt="خزانة منزلقة رمادية" loading="lazy"/>
-        <div class="gallery-full__overlay">
-          <div class="gallery-full__badge"><i class="fas fa-door-closed"></i> خزائن</div>
-          <div class="gallery-full__title">خزانة منزلقة رمادية</div>
-          <div class="gallery-full__loc"><i class="fas fa-map-marker-alt" style="font-size:.65rem"></i> حي النرجس</div>
+      <!-- 6 -->
+      <div class="gfull-item reveal" data-cat="furniture" data-title="تسريحة خشب داكن مع مرآة LED دائرية">
+        <img src="images/gallery/g06-dresser-led-mirror.jpg" alt="تسريحة خشب مع مرآة LED" loading="lazy"/>
+        <div class="gfull-overlay">
+          <div class="gfull-badge"><i class="fas fa-couch"></i> أثاث</div>
+          <div class="gfull-title">تسريحة خشب مع مرآة LED دائرية فاخرة</div>
         </div>
+        <button class="gfull-zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
       </div>
 
-      <div class="gallery-full__item reveal" data-cat="wardrobe" data-title="خزانة غرفة أطفال" data-desc="خزانة مخصصة لغرفة أطفال بألوان مبهجة">
-        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=700&q=80" alt="خزانة غرفة أطفال" loading="lazy"/>
-        <div class="gallery-full__overlay">
-          <div class="gallery-full__badge"><i class="fas fa-door-closed"></i> خزائن</div>
-          <div class="gallery-full__title">خزانة غرفة أطفال</div>
-          <div class="gallery-full__loc"><i class="fas fa-map-marker-alt" style="font-size:.65rem"></i> حي الياسمين</div>
+      <!-- 7 -->
+      <div class="gfull-item reveal" data-cat="wardrobe" data-title="خزانة منزلقة زجاج داكن مع إضاءة سقف">
+        <img src="images/gallery/g07-wardrobe-black-glass.jpg" alt="خزانة منزلقة زجاج داكن" loading="lazy"/>
+        <div class="gfull-overlay">
+          <div class="gfull-badge"><i class="fas fa-door-closed"></i> خزائن</div>
+          <div class="gfull-title">خزانة منزلقة زجاج داكن</div>
         </div>
+        <button class="gfull-zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
       </div>
 
-      <!-- FURNITURE -->
-      <div class="gallery-full__item reveal" data-cat="furniture" data-title="وحدة تلفزيون مدمجة" data-desc="وحدة تلفزيون جدارية مع مكتبة ورفوف">
-        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=700&q=80" alt="وحدة تلفزيون مدمجة" loading="lazy"/>
-        <div class="gallery-full__overlay">
-          <div class="gallery-full__badge"><i class="fas fa-couch"></i> أثاث</div>
-          <div class="gallery-full__title">وحدة تلفزيون مدمجة</div>
-          <div class="gallery-full__loc"><i class="fas fa-map-marker-alt" style="font-size:.65rem"></i> حي الياسمين</div>
+      <!-- 8 -->
+      <div class="gfull-item reveal" data-cat="decor" data-title="رفوف جدارية عائمة أسود مع لوح بلاطة">
+        <img src="images/gallery/g08-shelves-black-wall.jpg" alt="رفوف جدارية عائمة أسود" loading="lazy"/>
+        <div class="gfull-overlay">
+          <div class="gfull-badge"><i class="fas fa-layer-group"></i> ديكور</div>
+          <div class="gfull-title">رفوف جدارية عائمة أسود تصميم فريد</div>
         </div>
+        <button class="gfull-zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
       </div>
 
-      <div class="gallery-full__item reveal" data-cat="furniture" data-title="مكتبة حائطية كاملة" data-desc="مكتبة جدارية من الأرض للسقف مع إضاءة LED">
-        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=700&q=80" alt="مكتبة حائطية كاملة" loading="lazy"/>
-        <div class="gallery-full__overlay">
-          <div class="gallery-full__badge"><i class="fas fa-book-open"></i> أثاث</div>
-          <div class="gallery-full__title">مكتبة حائطية كاملة</div>
-          <div class="gallery-full__loc"><i class="fas fa-map-marker-alt" style="font-size:.65rem"></i> حي العارض</div>
+      <!-- 9 -->
+      <div class="gfull-item reveal" data-cat="commercial" data-title="كاونتر خشبي لمحل قهوة تجاري">
+        <img src="images/gallery/g09-cabinet-coffee-shop.jpg" alt="كاونتر خشبي لمحل قهوة" loading="lazy"/>
+        <div class="gfull-overlay">
+          <div class="gfull-badge"><i class="fas fa-store"></i> تجاري</div>
+          <div class="gfull-title">كاونتر خشبي لمحل قهوة تجاري</div>
         </div>
+        <button class="gfull-zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
       </div>
 
-      <div class="gallery-full__item reveal" data-cat="furniture" data-title="طاولة طعام خشب صلب" data-desc="طاولة طعام من خشب البلوط الصلب لـ ١٠ أشخاص">
-        <img src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=700&q=80" alt="طاولة طعام خشب صلب" loading="lazy"/>
-        <div class="gallery-full__overlay">
-          <div class="gallery-full__badge"><i class="fas fa-couch"></i> أثاث</div>
-          <div class="gallery-full__title">طاولة طعام خشب صلب</div>
-          <div class="gallery-full__loc"><i class="fas fa-map-marker-alt" style="font-size:.65rem"></i> حي النرجس</div>
+      <!-- 10 -->
+      <div class="gfull-item reveal" data-cat="wardrobe" data-title="خزانة جوز فاخرة بأبواب زجاجية وإضاءة LED">
+        <img src="images/gallery/g10-wardrobe-walnut-led.jpg" alt="خزانة جوز بأبواب زجاجية LED" loading="lazy"/>
+        <div class="gfull-overlay">
+          <div class="gfull-badge"><i class="fas fa-door-closed"></i> خزائن</div>
+          <div class="gfull-title">خزانة جوز فاخرة بأبواب زجاجية وLED</div>
         </div>
+        <button class="gfull-zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
       </div>
 
-      <div class="gallery-full__item reveal" data-cat="furniture" data-title="غرفة نوم كاملة" data-desc="تفصيل غرفة نوم رئيسية كاملة — سرير وخزانة وتسريحة">
-        <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?w=700&q=80" alt="غرفة نوم كاملة" loading="lazy"/>
-        <div class="gallery-full__overlay">
-          <div class="gallery-full__badge"><i class="fas fa-bed"></i> أثاث</div>
-          <div class="gallery-full__title">غرفة نوم كاملة</div>
-          <div class="gallery-full__loc"><i class="fas fa-map-marker-alt" style="font-size:.65rem"></i> شمال الرياض</div>
+      <!-- 11 -->
+      <div class="gfull-item reveal" data-cat="decor" data-title="وحدة تخزين تحت الدرج مع إضاءة LED">
+        <img src="images/gallery/g11-understair-led.jpg" alt="وحدة تخزين تحت الدرج LED" loading="lazy"/>
+        <div class="gfull-overlay">
+          <div class="gfull-badge"><i class="fas fa-lightbulb"></i> ديكور</div>
+          <div class="gfull-title">وحدة تخزين تحت الدرج مع إضاءة LED</div>
         </div>
+        <button class="gfull-zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
       </div>
 
-      <div class="gallery-full__item reveal" data-cat="furniture" data-title="مكتب منزلي فاخر" data-desc="مكتب عمل منزلي من الخشب الطبيعي مع خزانة ملفات">
-        <img src="https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=700&q=80" alt="مكتب منزلي فاخر" loading="lazy"/>
-        <div class="gallery-full__overlay">
-          <div class="gallery-full__badge"><i class="fas fa-chair"></i> أثاث</div>
-          <div class="gallery-full__title">مكتب منزلي فاخر</div>
-          <div class="gallery-full__loc"><i class="fas fa-map-marker-alt" style="font-size:.65rem"></i> حي الملقا</div>
+      <!-- 12 -->
+      <div class="gfull-item reveal" data-cat="furniture" data-title="كونسول أبيض معلق مع مرآة دائرية">
+        <img src="images/gallery/g12-mirror-white-console.jpg" alt="كونسول أبيض مع مرآة دائرية" loading="lazy"/>
+        <div class="gfull-overlay">
+          <div class="gfull-badge"><i class="fas fa-couch"></i> أثاث</div>
+          <div class="gfull-title">كونسول أبيض معلق مع مرآة دائرية</div>
         </div>
+        <button class="gfull-zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
       </div>
 
-      <!-- DOORS -->
-      <div class="gallery-full__item reveal" data-cat="doors" data-title="باب رئيسي بلوط" data-desc="باب فيلا من خشب البلوط مع نقوش يدوية">
-        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=700&q=80" alt="باب رئيسي بلوط" loading="lazy"/>
-        <div class="gallery-full__overlay">
-          <div class="gallery-full__badge"><i class="fas fa-door-open"></i> أبواب</div>
-          <div class="gallery-full__title">باب رئيسي بلوط</div>
-          <div class="gallery-full__loc"><i class="fas fa-map-marker-alt" style="font-size:.65rem"></i> شمال الرياض</div>
+      <!-- 13 -->
+      <div class="gfull-item reveal" data-cat="wardrobe" data-title="غرفة نوم كاملة — خزانة 4 أبواب زجاج داكن مع كونسول">
+        <img src="images/gallery/g13-wardrobe-4door-smoked.jpg" alt="خزانة 4 أبواب زجاج داكن" loading="lazy"/>
+        <div class="gfull-overlay">
+          <div class="gfull-badge"><i class="fas fa-door-closed"></i> خزائن</div>
+          <div class="gfull-title">خزانة ٤ أبواب زجاج داكن مع كونسول</div>
         </div>
+        <button class="gfull-zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
       </div>
 
-      <div class="gallery-full__item reveal" data-cat="doors" data-title="أبواب داخلية متناسقة" data-desc="طقم أبواب داخلية متناسقة لفيلا كاملة">
-        <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=700&q=80" alt="أبواب داخلية متناسقة" loading="lazy"/>
-        <div class="gallery-full__overlay">
-          <div class="gallery-full__badge"><i class="fas fa-door-open"></i> أبواب</div>
-          <div class="gallery-full__title">أبواب داخلية متناسقة</div>
-          <div class="gallery-full__loc"><i class="fas fa-map-marker-alt" style="font-size:.65rem"></i> حي النرجس</div>
+      <!-- 14 -->
+      <div class="gfull-item reveal" data-cat="wardrobe" data-title="خزانة جوز فاخرة بزجاج وإضاءة LED ذهبية">
+        <img src="images/gallery/g14-wardrobe-walnut-led2.jpg" alt="خزانة جوز LED ذهبية" loading="lazy"/>
+        <div class="gfull-overlay">
+          <div class="gfull-badge"><i class="fas fa-door-closed"></i> خزائن</div>
+          <div class="gfull-title">خزانة جوز بزجاج وإضاءة LED ذهبية</div>
         </div>
+        <button class="gfull-zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
       </div>
 
-    </div>
+      <!-- 15 -->
+      <div class="gfull-item reveal" data-cat="wardrobe" data-title="خزانة منزلقة مرايا 3 أبواب كاملة">
+        <img src="images/gallery/g15-wardrobe-mirror-3door.jpg" alt="خزانة منزلقة مرايا 3 أبواب" loading="lazy"/>
+        <div class="gfull-overlay">
+          <div class="gfull-badge"><i class="fas fa-door-closed"></i> خزائن</div>
+          <div class="gfull-title">خزانة منزلقة مرايا ٣ أبواب كاملة</div>
+        </div>
+        <button class="gfull-zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
+      </div>
+
+      <!-- 16 -->
+      <div class="gfull-item reveal" data-cat="wardrobe" data-title="خزانة 4 أبواب زجاج داكن إطار ذهبي">
+        <img src="images/gallery/g16-wardrobe-4door-glass.jpg" alt="خزانة 4 أبواب زجاج داكن إطار ذهبي" loading="lazy"/>
+        <div class="gfull-overlay">
+          <div class="gfull-badge"><i class="fas fa-door-closed"></i> خزائن</div>
+          <div class="gfull-title">خزانة ٤ أبواب زجاج داكن إطار ذهبي</div>
+        </div>
+        <button class="gfull-zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
+      </div>
+
+      <!-- 17 -->
+      <div class="gfull-item reveal" data-cat="wardrobe" data-title="خزانة بيج كريم 4 أبواب ورفرفة مقابض سوداء">
+        <img src="images/gallery/g17-wardrobe-beige-4door.jpg" alt="خزانة بيج 4 أبواب" loading="lazy"/>
+        <div class="gfull-overlay">
+          <div class="gfull-badge"><i class="fas fa-door-closed"></i> خزائن</div>
+          <div class="gfull-title">خزانة بيج ٤ أبواب مقابض سوداء</div>
+        </div>
+        <button class="gfull-zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
+      </div>
+
+      <!-- 18 -->
+      <div class="gfull-item reveal" data-cat="furniture" data-title="كونسول جوز معلق مع مرآة دائرية">
+        <img src="images/gallery/g18-mirror-walnut-console.jpg" alt="كونسول جوز مع مرآة دائرية" loading="lazy"/>
+        <div class="gfull-overlay">
+          <div class="gfull-badge"><i class="fas fa-couch"></i> أثاث</div>
+          <div class="gfull-title">كونسول جوز معلق مع مرآة دائرية</div>
+        </div>
+        <button class="gfull-zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
+      </div>
+
+      <!-- 19 -->
+      <div class="gfull-item reveal" data-cat="wardrobe" data-title="خزانة داخلية أسود مع أدراج ومرآة داخلية">
+        <img src="images/gallery/g19-wardrobe-black-open.jpg" alt="خزانة أسود مفتوحة مع أدراج" loading="lazy"/>
+        <div class="gfull-overlay">
+          <div class="gfull-badge"><i class="fas fa-door-closed"></i> خزائن</div>
+          <div class="gfull-title">خزانة أسود مع أدراج ومرآة داخلية</div>
+        </div>
+        <button class="gfull-zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
+      </div>
+
+      <!-- 20 -->
+      <div class="gfull-item reveal" data-cat="wardrobe" data-title="خزانة بني منزلقة 3 أبواب غرفة نوم">
+        <img src="images/gallery/g20-wardrobe-brown-3door.jpg" alt="خزانة بني منزلقة 3 أبواب" loading="lazy"/>
+        <div class="gfull-overlay">
+          <div class="gfull-badge"><i class="fas fa-door-closed"></i> خزائن</div>
+          <div class="gfull-title">خزانة بني منزلقة ٣ أبواب غرفة نوم</div>
+        </div>
+        <button class="gfull-zoom" aria-label="تكبير"><i class="fas fa-expand-alt"></i></button>
+      </div>
+
+    </div><!-- /grid -->
   </div>
 </section>
 
@@ -230,7 +296,6 @@
     <img class="lightbox__img" id="lbImg" src="" alt=""/>
     <div class="lightbox__info">
       <div class="lightbox__title" id="lbTitle"></div>
-      <div class="lightbox__desc" id="lbDesc"></div>
     </div>
   </div>
   <div class="lightbox__counter" id="lbCounter"></div>
@@ -240,7 +305,7 @@
 <section class="section section--dark" style="text-align:center">
   <div class="container">
     <h2 class="section__title" style="color:var(--c100)">أعجبك ما رأيت؟ <em>تواصل معنا الآن</em></h2>
-    <p style="color:var(--c400);margin-bottom:2rem">احصل على استشارة مجانية وعرض سعر فوري</p>
+    <p style="color:var(--c400);margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto">احصل على استشارة مجانية وعرض سعر فوري بدون التزام</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
       <a href="https://wa.me/966566099742" class="btn btn--gold" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> تواصل عبر واتساب</a>
       <a href="tel:0566099742" class="btn btn--outline"><i class="fas fa-phone"></i> اتصل الآن</a>
@@ -248,68 +313,71 @@
   </div>
 </section>
 
+<a href="tel:0566099742" class="call-fixed" aria-label="اتصل بنا"><i class="fas fa-phone"></i></a>
 <footer id="site-footer" class="footer"></footer>
 <footer style="text-align:center;padding:15px;font-size:13px;">Design &amp; Develop by <a href="" style="color:#c89b3c;font-weight:bold;text-decoration:none;">Bola Adel</a></footer>
 
 <script src="components.js"></script>
 <script>
 (function(){
-  const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),
-        lbTitle=document.getElementById('lbTitle'),lbDesc=document.getElementById('lbDesc'),
-        lbCount=document.getElementById('lbCounter'),lbClose=document.getElementById('lbClose'),
-        lbPrev=document.getElementById('lbPrev'),lbNext=document.getElementById('lbNext');
-  let items=[],current=0;
-  function getVisible(){return[...document.querySelectorAll('#fullGallery .gallery-full__item:not(.hidden)')];}
-  function openLB(idx){items=getVisible();current=idx;show(current);lb.classList.add('open');document.body.style.overflow='hidden';}
-  function closeLB(){lb.classList.remove('open');document.body.style.overflow='';}
-  function show(idx){
-    const item=items[idx];if(!item)return;
-    const img=item.querySelector('img');
-    lbImg.classList.add('loading');lbImg.src='';
-    setTimeout(()=>{
-      lbImg.src=img?img.src.replace('w=700','w=1400'):'';
-      lbImg.alt=img?img.alt:'';
-      lbImg.onload=()=>lbImg.classList.remove('loading');
-      lbTitle.textContent=item.dataset.title||'';
-      lbDesc.textContent=item.dataset.desc||'';
-      lbCount.textContent=(idx+1)+' / '+items.length;
-    },80);
-  }
   // Filter
   document.querySelectorAll('.gf-btn').forEach(btn=>{
     btn.addEventListener('click',()=>{
       document.querySelectorAll('.gf-btn').forEach(b=>b.classList.remove('active'));
       btn.classList.add('active');
       const f=btn.dataset.filter;
-      document.querySelectorAll('#fullGallery .gallery-full__item').forEach(i=>{
+      document.querySelectorAll('#fullGallery .gfull-item').forEach(i=>{
         i.classList.toggle('hidden',f!=='all'&&i.dataset.cat!==f);
       });
     });
   });
-  // Open
+
+  // Lightbox
+  const lb=document.getElementById('lightbox'),
+        lbImg=document.getElementById('lbImg'),
+        lbTitle=document.getElementById('lbTitle'),
+        lbCount=document.getElementById('lbCounter'),
+        lbClose=document.getElementById('lbClose'),
+        lbPrev=document.getElementById('lbPrev'),
+        lbNext=document.getElementById('lbNext');
+  let items=[],cur=0;
+
+  function visible(){return[...document.querySelectorAll('#fullGallery .gfull-item:not(.hidden)')];}
+  function open(idx){items=visible();cur=idx;show(cur);lb.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';}
+  function show(idx){
+    const it=items[idx]; if(!it)return;
+    const img=it.querySelector('img');
+    lbImg.classList.add('loading'); lbImg.src='';
+    setTimeout(()=>{
+      lbImg.src=img?img.src:'';
+      lbImg.alt=img?img.alt:'';
+      lbImg.onload=()=>lbImg.classList.remove('loading');
+      lbTitle.textContent=it.dataset.title||'';
+      lbCount.textContent=(idx+1)+' / '+items.length;
+    },60);
+  }
+
   document.getElementById('fullGallery').addEventListener('click',e=>{
-    const item=e.target.closest('.gallery-full__item');
-    if(!item)return;
-    items=getVisible();
-    const idx=items.indexOf(item);
-    if(idx>=0)openLB(idx);
+    const it=e.target.closest('.gfull-item'); if(!it)return;
+    items=visible(); const idx=items.indexOf(it); if(idx>=0)open(idx);
   });
-  lbClose.addEventListener('click',closeLB);
-  lb.addEventListener('click',e=>{if(e.target===lb)closeLB();});
-  lbPrev.addEventListener('click',e=>{e.stopPropagation();current=(current-1+items.length)%items.length;show(current);});
-  lbNext.addEventListener('click',e=>{e.stopPropagation();current=(current+1)%items.length;show(current);});
+  lbClose.addEventListener('click',close);
+  lb.addEventListener('click',e=>{if(e.target===lb)close();});
+  lbPrev.addEventListener('click',e=>{e.stopPropagation();cur=(cur-1+items.length)%items.length;show(cur);});
+  lbNext.addEventListener('click',e=>{e.stopPropagation();cur=(cur+1)%items.length;show(cur);});
   document.addEventListener('keydown',e=>{
     if(!lb.classList.contains('open'))return;
-    if(e.key==='Escape')closeLB();
-    if(e.key==='ArrowRight'){current=(current-1+items.length)%items.length;show(current);}
-    if(e.key==='ArrowLeft'){current=(current+1)%items.length;show(current);}
+    if(e.key==='Escape')close();
+    if(e.key==='ArrowRight'){cur=(cur-1+items.length)%items.length;show(cur);}
+    if(e.key==='ArrowLeft'){cur=(cur+1)%items.length;show(cur);}
   });
   let tx=0;
   lb.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
   lb.addEventListener('touchend',e=>{
-    const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)<50)return;
-    if(dx>0){current=(current-1+items.length)%items.length;}else{current=(current+1)%items.length;}
-    show(current);
+    const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)<50)return;
+    if(dx>0){cur=(cur-1+items.length)%items.length;}else{cur=(cur+1)%items.length;}
+    show(cur);
   });
 })();
 </script>
